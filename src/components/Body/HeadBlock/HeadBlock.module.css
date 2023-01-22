@@ -1,0 +1,117 @@
+.head-block {
+  margin-top: 160px;
+  width: calc(100% - 240px);
+  height: max-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+.head-block__content {
+  width: 100%;
+  max-width: 627px;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+}
+.head-block__content h1 {
+  margin: 0;
+  font-size: 50px;
+  font-weight: 700;
+  font-family: var(--font-family);
+  font-style: normal;
+  color: rgba(52, 165, 115, 1);
+  line-height: 60px;
+}
+.head-block__content_br {
+  font-size: 50px;
+  font-weight: 700;
+  font-family: var(--font-family);
+  font-style: normal;
+  color: rgba(40, 40, 40, 1);
+  line-height: 60px;
+}
+.head-block__description {
+  max-width: 312px;
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: var(--font-family);
+  font-style: normal;
+  line-height: 26px;
+}
+.head-block__btn {
+  margin-top: 30px;
+  width: 318px;
+  height: 55px;
+  background: rgba(52, 165, 115, 1);
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: var(--font-family-second);
+  font-style: normal;
+  line-height: 25.2px;
+  color: rgba(255, 255, 255, 1);
+}
+.head-block img {
+  width: 570px;
+  height: 570px;
+}
+
+@media (max-width: 768px) {
+  .head-block {
+    width: calc(100% - 80px);
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+  .head-block__content {
+    align-items: center;
+    text-align: center;
+  }
+  .head-block__description {
+    max-width: 412px;
+    text-align: center;
+  }
+  .head-block__btn {
+    width: 412px;
+  }
+}
+
+@media (max-width: 480px) {
+  .head-block {
+    margin-top: 100px;
+    width: calc(100% - 40px);
+    margin-bottom: 0;
+  }
+  .head-block__content {
+    align-items: unset;
+  }
+  .head-block__content h1 {
+    text-align: left;
+    font-size: 32px;
+    line-height: 38.4px;
+  }
+  .head-block__content_br {
+    font-size: 32px;
+    line-height: 38.4px;
+  }
+  .head-block__description {
+    text-align: start;
+    font-size: 18px;
+    margin-top: 15px;
+    max-width: 100%;
+    line-height: 23.4px;
+  }
+  .head-block__btn {
+    margin-top: 15px;
+    width: 100%;
+  }
+  .head-block img {
+    width: 100%;
+    height: max-content;
+  }
+}

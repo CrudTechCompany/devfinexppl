@@ -1,0 +1,31 @@
+.info-block {
+  margin-top: 70px;
+  width: 100%;
+  max-width: 1200px;
+  height: max-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 15px;
+  margin-bottom: 70px;
+}
+.content-block {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: calc(100% - 80px);
+  max-width: 1120px;
+  height: max-content;
+}
+
+@media (max-width:480px){
+  .info-block{
+    margin-top: 40px;
+  }
+  .content-block{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: calc(100% - 40px);
+  }
+}
