@@ -1,23 +1,22 @@
-import FirstInfoBlock from "./FirstInfoBlock/FirstInfoBlock";
-import FourthInfoBlock from "./FourthInfoBlock/FourthInfoBlock";
+import FirstBlock from "./FirstBlock/FirstBlock";
+import FourthBlock from "./FourthBlock/FourthBlock";
 import style from "./PriceBlock.module.css";
-import SecondInfoBlock from "./SecondInfoBlock/SecondInfoBlock";
-import ThirdInfoBlock from "./ThirdInfoBlock/ThirdInfoBlock";
+import SecondBlock from "./SecondBlock/SecondBlock";
+import ThirdBlock from "./ThirdBlock/ThirdBlock";
 
 const PriceBlock = () => {
   return (
     <div className={style["block"]} id="price-block">
-      <div className={style["block-margin"]}/>
-      <div className={style["price-block"]}>
-        <div className={style["content-block"]}>
-          <span className={style["content-block__title"]}>Cennik</span>
-          <span className={style["content-block__description"]}>
-            Wszystkie kwoty są cenami netto
-          </span>
-          <FirstInfoBlock />
-          <SecondInfoBlock />
-          <ThirdInfoBlock />
-          <FourthInfoBlock />
+      <div className={style["content-block"]}>
+        <div className={style["content"]}>
+          <div className={style["title-block"]}>
+            <h3 className={style["title"]}>Cennik</h3>
+            <span>Wszystkie kwoty są cenami netto</span>
+          </div>
+          <FirstBlock />
+          <SecondBlock />
+          <ThirdBlock />
+          <FourthBlock/>
         </div>
       </div>
     </div>

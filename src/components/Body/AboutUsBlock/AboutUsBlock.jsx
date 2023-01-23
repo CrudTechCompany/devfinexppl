@@ -1,18 +1,31 @@
 import style from "./AboutUsBlock.module.css";
-import about_us_block from "../../../assets/about_us_block.svg";
+import about_block from "../../../assets/about_block.svg";
 
 const AboutUsBlock = () => {
+  const content = [
+    {
+      title: "lat doświadczenia",
+      count: "5 +",
+    },
+    {
+      title: "klientów",
+      count: "130 +",
+    },
+    {
+      title: "dokumentów miesięcznie",
+      count: "2300 +",
+    },
+  ];
   return (
     <div className={style["block"]} id="about-block">
-      <div className={style["block-margin"]}/>
-      <div className={style["about-us-block"]}>
-        <div className={style["about-us-block__content"]}>
-          <img src={about_us_block} alt="" />
-          <div className={style["content-block"]}>
-            <span className={style["content-block__title"]}>
+      <div className={style["content-block"]}>
+        <div className={style["content"]}>
+          <img src={about_block} alt="" />
+          <div className={style["content__content"]}>
+            <h3 className={style["title"]}>
               O Finance <span>Expert</span>
-            </span>
-            <span className={style["content-block__description"]}>
+            </h3>
+            <span className={style["description"]}>
               Finance Expert oferuje kompleksowe usługi księgowe oraz usługi
               kadrowe i doradcze dla firm. Nasi pracownicy posiadają należyte
               doświadczenie i szkolenia w obrębie swoich kwalifikacji tak, by
@@ -23,28 +36,16 @@ const AboutUsBlock = () => {
               najkorzystniejsze dla klienta. Swoje usługi świadczymy również
               zdalnie – współpraca z klientami z całej Polski.
             </span>
-            <div className={style["count-block"]}>
-              <div className={style["count-block__documents"]}>
-                <span className={style["count-block-item__title"]}>
-                  lat doświadczenia
-                </span>
-                <div className={style["separator"]} />
-                <span className={style["counter"]}>5 +</span>
-              </div>
-              <div className={style["count-block__documents"]}>
-                <span className={style["count-block-item__title"]}>
-                  klientów
-                </span>
-                <div className={style["separator"]} />
-                <span className={style["counter"]}>130 +</span>
-              </div>
-              <div className={style["count-block__documents"]}>
-                <span className={style["count-block-item__title"]}>
-                  dokumentów miesięcznie
-                </span>
-                <div className={style["separator"]} />
-                <span className={style["counter"]}>2300 +</span>
-              </div>
+            <div className={style["statistics-block"]}>
+              {content.map((el) => (
+                <div className={style["statistics__item"]} key={el["title"]}>
+                  <span className={style["statistics__title"]}>
+                    {el["title"]}
+                  </span>
+                  <div className={style["separator"]} />
+                  <span className={style["count"]}>{el["count"]}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

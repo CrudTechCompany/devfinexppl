@@ -1,42 +1,45 @@
-import { useState } from "react";
-import style from "./App.module.css";
-import AboutUsBlock from "./components/Body/AboutUsBlock/AboutUsBlock";
+import { useEffect, useState } from "react";
+import "./App.css";
 import Body from "./components/Body/Body";
-import BureauServicesBlock from "./components/Body/BureauServicesBlock/BureauServicesBlock";
-import ContactBlock from "./components/Body/ContactBlock/ContactBlock";
-import HeadBlock from "./components/Body/HeadBlock/HeadBlock";
-import PriceBlock from "./components/Body/PriceBlock/PriceBlock";
-import WorkWithFEBlock from "./components/Body/WorkWithFEBlock/WorkWithFEBlock";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import MenuBlock from "./components/MenuBlock/MenuBlock";
+import MobileMenu from "./components/MobileMenu/MobileMenu";
+import PrivacyPolicyPopUp from "./components/Pop-Up/PrivacyPolicyPoUp";
 
-const App = () => {
-  const [menuState, setMenuState] = useState(false);
-  const setMenuStateHandler = () => {
-    setMenuState((prev) => {
+function App() {
+  useEffect(() => {
+    localStorage.getItem("p_up_state") === "true"
+      ? setPopUpState(false)
+      : setPopUpState(true);
+  }, []);
+  const [mobileMenuState, setMobileMenuState] = useState(false);
+  const [popUpState, setPopUpState] = useState(true);
+  const onClickPopUpAgreeButton = () => {
+    localStorage.setItem("p_up_state", "true");
+    setPopUpState(false);
+  };
+  const setMobileMenuStateHandler = () => {
+    setMobileMenuState((prev) => {
       prev = !prev;
       return prev;
     });
   };
   return (
     <div
-      className={style["App"]}
-      style={{ position: menuState ? "fixed" : "unset" }}
+      className="App"
+      style={{ position: mobileMenuState ? "fixed" : "relative" }}
     >
-      {menuState && <MenuBlock setMenuStateHandler={setMenuStateHandler} />}
-      <Header setMenuStateHandler={setMenuStateHandler} />
-      <Body>
-        <HeadBlock />
-        <AboutUsBlock />
-        <BureauServicesBlock />
-        <WorkWithFEBlock />
-        <PriceBlock />
-        <ContactBlock />
-      </Body>
+      {mobileMenuState && (
+        <MobileMenu setMobileMenuState={setMobileMenuStateHandler} />
+      )}
+      {popUpState && (
+        <PrivacyPolicyPopUp onClickPopUpAgreeButton={onClickPopUpAgreeButton} />
+      )}
+      <Header setMobileMenuState={setMobileMenuStateHandler} />
+      <Body />
       <Footer />
     </div>
   );
-};
+}
 
 export default App;

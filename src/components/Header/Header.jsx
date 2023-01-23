@@ -1,78 +1,81 @@
 import style from "./Header.module.css";
-import finance_expert_logo from "../../assets/finance_expert_logo.svg";
-import lang_icon from "../../assets/lang_icon.svg";
-import menu_icon from "../../assets/mobile_menu_icon.svg";
-import { useEffect } from "react";
+import finexp_logo from "../../assets/finexp_logo.svg";
+import { Link } from "react-scroll";
+import lang_pl from "../../assets/lang_pl.svg";
+import lang_en from "../../assets/lang_en.svg";
+import lang_ua from "../../assets/lang_ua.svg";
+import menu_icon from "../../assets/menu_icon.svg";
 
 const Header = (props) => {
-  useEffect(() => {
-    document.getElementById("header").addEventListener("click", (event) => {
-      switch (event.target.innerText) {
-        case "O nas": {
-          document
-            .getElementById("about-block")
-            .scrollIntoView({ behavior: "smooth", block: "start" });
-          break;
-        }
-        case "Oferta": {
-          document
-            .getElementById("bureau-block")
-            .scrollIntoView({ behavior: "smooth", block: "start" });
-          break;
-        }
-        case "Cennik": {
-          document
-            .getElementById("price-block")
-            .scrollIntoView({ behavior: "smooth", block: "start" });
-          break;
-        }
-        case "Korzyści": {
-          document
-            .getElementById("work-block")
-            .scrollIntoView({ behavior: "smooth", block: "start" });
-          break;
-        }
-        case "Kontakt": {
-          document
-            .getElementById("contact-block")
-            .scrollIntoView({ behavior: "smooth", block: "start" });
-          break;
-        }
-        default: {
-        }
-      }
-    });
-  });
   return (
-    <header className={style["header"]} id="header">
+    <header className={style["header"]}>
       <div className={style["content"]}>
-        <img className={style["content__logo"]} src={finance_expert_logo} alt="" />
-        <div className={style["menu-block"]}>
-          <button className={style["menu-block__btn"]}>O nas</button>
-          <button className={style["menu-block__btn"]} href="#">
+        <img className={style["logo"]} src={finexp_logo} alt="" />
+        <div className={style["link-block"]}>
+          <Link
+            className={style["link-block__item"]}
+            to="about-block"
+            smooth="true"
+          >
+            O nas
+          </Link>
+          <Link
+            className={style["link-block__item"]}
+            to="offer-block"
+            smooth="true"
+          >
             Oferta
-          </button>
-          <button className={style["menu-block__btn"]} href="#">
+          </Link>
+          <Link
+            className={style["link-block__item"]}
+            to="price-block"
+            smooth="true"
+          >
             Cennik
-          </button>
-          <button className={style["menu-block__btn"]} href="#">
+          </Link>
+          <Link
+            className={style["link-block__item"]}
+            to="benefit-block"
+            smooth="true"
+          >
             Korzyści
-          </button>
-          <button className={style["menu-block__btn"]} href="#">
+          </Link>
+          <Link
+            className={style["link-block__item"]}
+            to="contact-block"
+            smooth="true"
+          >
             Kontakt
-          </button>
+          </Link>
         </div>
-        <div className={style["phone-block"]}>
-          <img src={lang_icon} alt="" />
-          <a className={style["phone-link"]} href="tel:+48 502 708 529">
+        <div className={style["contact-block"]}>
+          <div className={style["lang-block"]}>
+            <button className={style["lang-block__item"]}>
+              <img src={lang_pl} alt="" />
+            </button>
+            <button className={style["lang-block__item"]}>
+              <img src={lang_en} alt="" />
+            </button>
+            <button className={style["lang-block__item"]}>
+              <img src={lang_ua} alt="" />
+            </button>
+          </div>
+          <a
+            className={style["contact-block__item"]}
+            href="tel:+48 502 708 529"
+          >
             +48 502 708 529
           </a>
         </div>
-        <button className={style["menu-button"]} onClick={props.setMenuStateHandler}>
-          <img src={menu_icon} alt=""/>
+        <button
+          className={style["menu-btn"]}
+          onClick={props.setMobileMenuState}
+        >
+          <img src={menu_icon} alt="" />
         </button>
       </div>
     </header>
   );
 };
+
 export default Header;

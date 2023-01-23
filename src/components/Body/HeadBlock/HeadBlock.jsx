@@ -1,21 +1,21 @@
 import style from "./HeadBlock.module.css";
-import head_block_image from "../../../assets/head_block.svg";
+import head_block from "../../../assets/head_block.svg";
 
 const HeadBlock = () => {
   return (
-    <div className={style["head-block"]}>
-      <div className={style["head-block__content"]}>
-        <h1>
+    <div className={style["block"]}>
+      <div className={style["content"]}>
+        <h1 className={style["title"]}>
           Biuro rachunkowe
           <br />
-          <span className={style["head-block__content_br"]}>dla przedsiębiorców</span>
+          <span>dla przedsiębiorców</span>
         </h1>
-        <span className={style["head-block__description"]}>
+        <span className={style["description"]}>
           Profesjonalna obsługa księgowa. Pracujemy na terenie całej Polski
         </span>
-        <button className={style["head-block__btn"]}>Zapytaj o ofertę</button>
+        <button>Zapytaj o ofertę</button>
       </div>
-      <img src={head_block_image} alt="" />
+      <img src={head_block} alt="" />
     </div>
   );
 };
