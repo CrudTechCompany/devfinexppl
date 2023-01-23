@@ -6,15 +6,15 @@ import HeadBlock from "./HeadBlock/HeadBlock";
 import OfferBlock from "./OfferBlock/OfferBlock";
 import PriceBlock from "./PriceBlock/PriceBlock";
 
-const Body = () => {
+const Body = (props) => {
   return (
     <div className={style["body"]}>
-      <HeadBlock />
+      <HeadBlock setContactFormState={props.setContactFormState} />
       <AboutUsBlock />
       <OfferBlock />
       <BenefitBlock />
-      <PriceBlock/>
-      <ContactBlock/>
+      <PriceBlock />
+      <ContactBlock />
     </div>
   );
 };

@@ -3,28 +3,15 @@ import { Outlet, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Page404 from "./components/404/404";
 import Body from "./components/Body/Body";
+import ContactForm from "./components/ContactForm/ContactForm";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import MobileMenu from "./components/MobileMenu/MobileMenu";
-import PrivacyPolicyPopUp from "./components/Pop-Up/PrivacyPolicyPoUp";
+import PrivacyPolicyPopUp from "./components/Pop-Up/PrivacyPolicyPopUp";
 
 const MainPage = (props) => {
-  useEffect(() => {
-    localStorage.getItem("p_up_state") === "true"
-      ? setPopUpState(false)
-      : setPopUpState(true);
-  }, []);
-  const [popUpState, setPopUpState] = useState(true);
-  const onClickPopUpAgreeButton = () => {
-    localStorage.setItem("p_up_state", "true");
-    setPopUpState(false);
-  };
-
   return (
     <React.Fragment>
-      {popUpState && (
-        <PrivacyPolicyPopUp onClickPopUpAgreeButton={onClickPopUpAgreeButton} />
-      )}
       <Header setMobileMenuState={props.setMobileMenuStateHandler} />
       <Outlet />
       <Footer />
@@ -33,6 +20,20 @@ const MainPage = (props) => {
 };
 
 const App = () => {
+  useEffect(() => {
+    localStorage.getItem("p_up_state") === "true"
+      ? setPopUpState(false)
+      : setPopUpState(true);
+  }, []);
+  const [popUpState, setPopUpState] = useState(true);
+  const [contactFormState, setContactFormState] = useState(false);
+  const setContactFormStateHandler = () => {
+    setContactFormState((prev) => !prev);
+  };
+  const onClickPopUpAgreeButton = () => {
+    localStorage.setItem("p_up_state", "true");
+    setPopUpState(false);
+  };
   const [mobileMenuState, setMobileMenuState] = useState(false);
 
   const setMobileMenuStateHandler = () => {
@@ -44,7 +45,9 @@ const App = () => {
   return (
     <div
       className="App"
-      style={{ position: mobileMenuState ? "fixed" : "relative" }}
+      style={{
+        position: mobileMenuState || contactFormState ? "fixed" : "relative",
+      }}
     >
       {mobileMenuState && (
         <MobileMenu setMobileMenuState={setMobileMenuStateHandler} />
@@ -52,9 +55,27 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={<MainPage setMobileMenuState={setMobileMenuStateHandler} />}
+          element={
+            <React.Fragment>
+              {popUpState && (
+                <PrivacyPolicyPopUp
+                  onClickPopUpAgreeButton={onClickPopUpAgreeButton}
+                />
+              )}
+              {contactFormState && (
+                <ContactForm setContactFormState={setContactFormStateHandler} />
+              )}
+              <MainPage
+                setPopUpState={setPopUpState}
+                setMobileMenuState={setMobileMenuStateHandler}
+              />
+            </React.Fragment>
+          }
         >
-          <Route index element={<Body />} />
+          <Route
+            index
+            element={<Body setContactFormState={setContactFormStateHandler} />}
+          />
         </Route>
         <Route path="*" element={<Page404 />} />
       </Routes>

@@ -1,7 +1,7 @@
 import style from "./HeadBlock.module.css";
 import head_block from "../../../assets/head_block.svg";
 
-const HeadBlock = () => {
+const HeadBlock = (props) => {
   return (
     <div className={style["block"]}>
       <div className={style["content"]}>
@@ -13,7 +13,7 @@ const HeadBlock = () => {
         <span className={style["description"]}>
           Profesjonalna obsługa księgowa. Pracujemy na terenie całej Polski
         </span>
-        <button>Zapytaj o ofertę</button>
+        <button onClick={props.setContactFormState}>Zapytaj o ofertę</button>
       </div>
       <img src={head_block} alt="" />
     </div>
