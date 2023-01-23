@@ -46,7 +46,7 @@ const App = () => {
     <div
       className="App"
       style={{
-        position: mobileMenuState || contactFormState ? "fixed" : "relative",
+        position: mobileMenuState ? "fixed" : "relative",
       }}
     >
       {mobileMenuState && (
