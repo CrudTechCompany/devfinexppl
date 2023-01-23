@@ -9,8 +9,22 @@ import MobileMenu from "./components/MobileMenu/MobileMenu";
 import PrivacyPolicyPopUp from "./components/Pop-Up/PrivacyPolicyPoUp";
 
 const MainPage = (props) => {
+  useEffect(() => {
+    localStorage.getItem("p_up_state") === "true"
+      ? setPopUpState(false)
+      : setPopUpState(true);
+  }, []);
+  const [popUpState, setPopUpState] = useState(true);
+  const onClickPopUpAgreeButton = () => {
+    localStorage.setItem("p_up_state", "true");
+    setPopUpState(false);
+  };
+
   return (
     <React.Fragment>
+      {popUpState && (
+        <PrivacyPolicyPopUp onClickPopUpAgreeButton={onClickPopUpAgreeButton} />
+      )}
       <Header setMobileMenuState={props.setMobileMenuStateHandler} />
       <Outlet />
       <Footer />
@@ -19,17 +33,8 @@ const MainPage = (props) => {
 };
 
 const App = () => {
-  useEffect(() => {
-    localStorage.getItem("p_up_state") === "true"
-      ? setPopUpState(false)
-      : setPopUpState(true);
-  }, []);
   const [mobileMenuState, setMobileMenuState] = useState(false);
-  const [popUpState, setPopUpState] = useState(true);
-  const onClickPopUpAgreeButton = () => {
-    localStorage.setItem("p_up_state", "true");
-    setPopUpState(false);
-  };
+
   const setMobileMenuStateHandler = () => {
     setMobileMenuState((prev) => {
       prev = !prev;
@@ -43,9 +48,6 @@ const App = () => {
     >
       {mobileMenuState && (
         <MobileMenu setMobileMenuState={setMobileMenuStateHandler} />
-      )}
-      {popUpState && (
-        <PrivacyPolicyPopUp onClickPopUpAgreeButton={onClickPopUpAgreeButton} />
       )}
       <Routes>
         <Route
