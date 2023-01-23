@@ -1,12 +1,24 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Outlet, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Page404 from "./components/404/404";
 import Body from "./components/Body/Body";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import MobileMenu from "./components/MobileMenu/MobileMenu";
 import PrivacyPolicyPopUp from "./components/Pop-Up/PrivacyPolicyPoUp";
 
-function App() {
+const MainPage = (props) => {
+  return (
+    <React.Fragment>
+      <Header setMobileMenuState={props.setMobileMenuStateHandler} />
+      <Outlet />
+      <Footer />
+    </React.Fragment>
+  );
+};
+
+const App = () => {
   useEffect(() => {
     localStorage.getItem("p_up_state") === "true"
       ? setPopUpState(false)
@@ -35,11 +47,17 @@ function App() {
       {popUpState && (
         <PrivacyPolicyPopUp onClickPopUpAgreeButton={onClickPopUpAgreeButton} />
       )}
-      <Header setMobileMenuState={setMobileMenuStateHandler} />
-      <Body />
-      <Footer />
+      <Routes>
+        <Route
+          path="/"
+          element={<MainPage setMobileMenuState={setMobileMenuStateHandler} />}
+        >
+          <Route index element={<Body />} />
+        </Route>
+        <Route path="*" element={<Page404 />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
