@@ -662,15 +662,24 @@ const PrivacyPolicy = () => {
           </li>
           <li>
             <b>Adres poczty elektronicznej </b>
-            <span>– biuro@finexp.pl</span>
+            <span>
+              – <a href="mailto:biuro@finexp.pl">biuro@finexp.pl</a>
+            </span>
           </li>
           <li>
             <b>Połączenie telefoniczne </b>
-            <span>– +48 502 708 529</span>
+            <span>
+              – <a href="tel:+48 502 708 529">+48 502 708 529</a>
+            </span>
           </li>
           <li>
             <b>Formularz kontaktowy </b>{" "}
-            <span>– dostępny pod adresem: finexp.pl</span>
+            <span>
+              – dostępny pod adresem:{" "}
+              <a href="https://www.finexp.pl/" target="_blank" rel="noreferrer">
+                finexp.pl
+              </a>
+            </span>
           </li>
         </ul>
         <h3>§15 Wymagania Serwisu</h3>

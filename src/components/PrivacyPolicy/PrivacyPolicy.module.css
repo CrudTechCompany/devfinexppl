@@ -43,6 +43,9 @@
   width: 100%;
   text-align: start;
 }
+.content a {
+  color: rgba(128, 0, 128, 1);
+}
 
 @media (max-width: 820px) {
   .content {
