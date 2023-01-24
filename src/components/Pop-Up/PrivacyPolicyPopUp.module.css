@@ -9,7 +9,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  z-index: 4;
+  z-index: 3;
 }
 .pop-up__content {
   width: calc(100% - 80px);
