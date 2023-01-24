@@ -212,7 +212,8 @@ const PrivacyPolicy = () => {
                 <span> </span>
                 <a
                   href="https://nety.pl/jak-wylaczyc-pliki-cookie/"
-                  target="blank"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   jak wyłączyć cookie
                 </a>
@@ -222,7 +223,8 @@ const PrivacyPolicy = () => {
                   <li>
                     <a
                       href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform=Desktop&hl=pl"
-                      target="blank"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       Zarządzanie plikami cookies w przeglądarce Chrome
                     </a>
@@ -230,7 +232,8 @@ const PrivacyPolicy = () => {
                   <li>
                     <a
                       href="https://help.opera.com/pl/latest/web-preferences/"
-                      target="blank"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       Zarządzanie plikami cookies w przeglądarce Opera
                     </a>
@@ -238,7 +241,8 @@ const PrivacyPolicy = () => {
                   <li>
                     <a
                       href="https://support.mozilla.org/pl/kb/blokowanie-ciasteczek"
-                      target="blank"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       Zarządzanie plikami cookies w przeglądarce FireFox
                     </a>
@@ -246,7 +250,8 @@ const PrivacyPolicy = () => {
                   <li>
                     <a
                       href="https://support.microsoft.com/pl-pl/microsoft-edge/usuwanie-plik%C3%B3w-cookie-w-przegl%C4%85darce-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09"
-                      target="blank"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       Zarządzanie plikami cookies w przeglądarce Edge
                     </a>
@@ -254,7 +259,8 @@ const PrivacyPolicy = () => {
                   <li>
                     <a
                       href="https://support.apple.com/pl-pl/guide/safari/sfri11471/mac"
-                      target="blank"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       Zarządzanie plikami cookies w przeglądarce Safari
                     </a>
@@ -262,7 +268,8 @@ const PrivacyPolicy = () => {
                   <li>
                     <a
                       href="https://support.microsoft.com/pl-pl/windows/usuwanie-plik%C3%B3w-cookie-i-zarz%C4%85dzanie-nimi-168dab11-0753-043d-7c16-ede5947fc64d#ie=ie-11"
-                      target="blank"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       Zarządzanie plikami cookies w przeglądarce Internet
                       Explorer 11
@@ -370,14 +377,19 @@ const PrivacyPolicy = () => {
             </span>
             <ul>
               <li>
-                <a href="https://www.facebook.com/legal/terms" target="blank">
+                <a
+                  href="https://www.facebook.com/legal/terms"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Facebook
                 </a>
               </li>
               <li>
                 <a
                   href="https://policies.google.com/privacy?hl=pl"
-                  target="blank"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   Google+
                 </a>
