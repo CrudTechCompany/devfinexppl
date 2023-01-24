@@ -65,6 +65,7 @@
   font-style: normal;
   line-height: 25.2px;
   color: rgba(255, 255, 255, 1);
+  cursor: pointer;
 }
 .item__price {
   margin-top: 5px;

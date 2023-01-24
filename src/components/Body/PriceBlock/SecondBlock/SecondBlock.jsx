@@ -1,7 +1,7 @@
 import style from "./SecondBlock.module.css";
 import second_block from "../../../../assets/second_block.svg";
 
-const SecondBlock = () => {
+const SecondBlock = (props) => {
   const content = [
     {
       title: "do 10 dokumentów",
@@ -56,7 +56,7 @@ const SecondBlock = () => {
             Każde kolejne zwiększenie dokumentów - <span>5 zł</span> (netto) za
             każdy dokument
           </span>
-          <button>Umów się na spotkanie</button>
+          <button onClick={props.setContactFormState}>Umów się na spotkanie</button>
         </div>
       </div>
     </div>

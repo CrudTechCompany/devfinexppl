@@ -1,7 +1,7 @@
 import style from "./ThirdBlock.module.css";
 import third_block from "../../../../assets/third_block.svg";
 
-const ThirdBlock = () => {
+const ThirdBlock = (props) => {
   const content = [
     {
       title:
@@ -37,7 +37,7 @@ const ThirdBlock = () => {
               </div>
             ))}
           </div>
-          <button>Umów się na spotkanie</button>
+          <button onClick={props.setContactFormState}>Umów się na spotkanie</button>
         </div>
         <img src={third_block} alt="" />
       </div>

@@ -1,6 +1,7 @@
 import style from "./Footer.module.css";
 import finexp_logo from "../../assets/finexp_logo.svg";
 import { Link } from "react-scroll";
+import {Link as NavLink} from "react-router-dom" ;
 
 const Footer = () => {
   return (
@@ -60,7 +61,7 @@ const Footer = () => {
         </div>
         <div className={style["separator"]} />
         <div className={style["bottom-block"]}>
-          <span>Polityka prywatności</span>
+          <NavLink to="/privacy-policy" target="blank">Polityka prywatności</NavLink>
           <span>© 2023 | All rights reserved</span>
         </div>
       </div>

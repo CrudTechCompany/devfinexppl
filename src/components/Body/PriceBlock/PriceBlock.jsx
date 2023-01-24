@@ -4,7 +4,7 @@ import style from "./PriceBlock.module.css";
 import SecondBlock from "./SecondBlock/SecondBlock";
 import ThirdBlock from "./ThirdBlock/ThirdBlock";
 
-const PriceBlock = () => {
+const PriceBlock = (props) => {
   return (
     <div className={style["block"]} id="price-block">
       <div className={style["content-block"]}>
@@ -13,10 +13,10 @@ const PriceBlock = () => {
             <h3 className={style["title"]}>Cennik</h3>
             <span>Wszystkie kwoty są cenami netto</span>
           </div>
-          <FirstBlock />
-          <SecondBlock />
-          <ThirdBlock />
-          <FourthBlock/>
+          <FirstBlock setContactFormState={props.setContactFormState}/>
+          <SecondBlock setContactFormState={props.setContactFormState}/>
+          <ThirdBlock setContactFormState={props.setContactFormState}/>
+          <FourthBlock setContactFormState={props.setContactFormState}/>
         </div>
       </div>
     </div>

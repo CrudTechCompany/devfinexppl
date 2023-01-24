@@ -13,7 +13,7 @@ const Body = (props) => {
       <AboutUsBlock />
       <OfferBlock />
       <BenefitBlock />
-      <PriceBlock />
+      <PriceBlock setContactFormState={props.setContactFormState}/>
       <ContactBlock />
     </div>
   );

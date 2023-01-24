@@ -1,7 +1,7 @@
 import style from "./FirstBlock.module.css";
 import first_block from "../../../../assets/first_block.svg";
 
-const FirstBlock = () => {
+const FirstBlock = (props) => {
   const content = [
     {
       title: "do 30 dokumentów",
@@ -49,7 +49,7 @@ const FirstBlock = () => {
             Każde kolejne zwiększenie dokumentów - <span>10 zł</span> (netto) za
             każdy dokument
           </span>
-          <button>Umów się na spotkanie</button>
+          <button onClick={props.setContactFormState}>Umów się na spotkanie</button>
         </div>
         <img src={first_block} alt="" />
       </div>

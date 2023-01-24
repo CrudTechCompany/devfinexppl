@@ -8,11 +8,12 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import MobileMenu from "./components/MobileMenu/MobileMenu";
 import PrivacyPolicyPopUp from "./components/Pop-Up/PrivacyPolicyPopUp";
+import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 
 const MainPage = (props) => {
   return (
     <React.Fragment>
-      <Header setMobileMenuState={props.setMobileMenuStateHandler} />
+      <Header setMobileMenuState={props.setMobileMenuState} />
       <Outlet />
       <Footer />
     </React.Fragment>
@@ -37,6 +38,7 @@ const App = () => {
   const [mobileMenuState, setMobileMenuState] = useState(false);
 
   const setMobileMenuStateHandler = () => {
+    console.log("aaa");
     setMobileMenuState((prev) => {
       prev = !prev;
       return prev;
@@ -77,6 +79,7 @@ const App = () => {
             element={<Body setContactFormState={setContactFormStateHandler} />}
           />
         </Route>
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
     </div>

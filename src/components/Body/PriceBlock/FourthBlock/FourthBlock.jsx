@@ -1,6 +1,6 @@
 import style from "./FourthBlock.module.css";
 
-const FourthBlock = () => {
+const FourthBlock = (props) => {
   const content = [
     {
       title: "Przygotowanie PIT-11",
@@ -58,7 +58,7 @@ const FourthBlock = () => {
                 {el["price"]}
               </span>
             </div>
-            <button>Umów się na spotkanie</button>
+            <button onClick={props.setContactFormState}>Umów się na spotkanie</button>
           </div>
         ))}
       </div>
