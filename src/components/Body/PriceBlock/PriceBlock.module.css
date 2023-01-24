@@ -45,19 +45,22 @@
     justify-content: center;
     width: calc(100% - 80px);
   }
-  .title-block{
+  .title-block {
     align-items: center;
     justify-content: center;
   }
 }
 
-@media (max-width:480px){
-  .title-block{
+@media (max-width: 480px) {
+  .block {
+    padding-top: 60px;
+  }
+  .title-block {
     width: 100%;
     align-items: unset;
     justify-content: flex-start;
   }
-  .content{
+  .content {
     margin-top: 40px;
     width: calc(100% - 40px);
   }
