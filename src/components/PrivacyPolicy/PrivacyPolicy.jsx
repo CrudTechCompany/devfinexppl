@@ -6,15 +6,15 @@ const PrivacyPolicy = () => {
       <div className={style["content"]}>
         <h2>Polityka Prywatności</h2>
         <p>
-          Poniższa Polityka Prywatności określa
+          Poniższa Polityka Prywatności określa<span> </span>
           <b>
             zasady zapisywania i uzyskiwania dostępu do danych na Urządzeniach
             Użytkowników
           </b>
-          korzystających z Serwisu do celów świadczenia usług drogą
+          <span> </span>korzystających z Serwisu do celów świadczenia usług drogą
           elektroniczną przez Administratora oraz
           <b>
-            zasady gromadzenia i przetwarzania danych osobowych Użytkowników
+          <span> </span>zasady gromadzenia i przetwarzania danych osobowych Użytkowników
           </b>
           , które zostały podane przez nich osobiście i dobrowolnie za
           pośrednictwem narzędzi dostępnych w Serwisie.
