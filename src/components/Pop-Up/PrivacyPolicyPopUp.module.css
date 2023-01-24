@@ -25,7 +25,8 @@
   flex-direction: column;
   max-width: 835px;
 }
-.content-block span {
+.content-block span,
+a{
   font-size: 16px;
   font-weight: 400;
   font-family: var(--font-lato);
@@ -33,7 +34,7 @@
   line-height: 20.8px;
   color: rgba(255, 255, 255, 1);
 }
-.content-block span:not(:first-of-type) {
+.content-block a {
   margin-top: 10px;
   font-weight: 700;
 }
@@ -65,7 +66,7 @@
     justify-content: center;
     align-items: flex-start;
   }
-  .pop-up__content span:last-of-type {
+  .pop-up__content a {
     margin-top: 20px;
     font-size: 16px;
     line-height: 23.6px;
@@ -94,6 +95,9 @@
   .content-block {
     align-items: center;
     justify-content: center;
+  }
+  .pop-up__content a{
+    margin-top: 10px;
   }
   .pop-up__content button {
     margin-left: 0;

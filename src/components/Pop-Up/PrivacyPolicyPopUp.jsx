@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import style from "./PrivacyPolicyPopUp.module.css";
 
 const PrivacyPolicyPopUp = (props) => {
@@ -10,7 +11,9 @@ const PrivacyPolicyPopUp = (props) => {
             poziomie. Dalsze korzystanie ze strony oznacza, że zgadzasz się na
             ich użycie.
           </span>
-          <span>Polityka prywatności</span>
+          <Link to="/privacy-policy" target="_blank" rel="noreferrer">
+            Polityka prywatności
+          </Link>
         </div>
         <button onClick={props.onClickPopUpAgreeButton}>
           Zaakceptuj i zamknij
