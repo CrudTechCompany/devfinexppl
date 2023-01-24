@@ -208,14 +208,16 @@ const PrivacyPolicy = () => {
               <li>
                 Informacje o sposobie wyłączenia plików Cookie w
                 najpopularniejszych przeglądarkach komputerowych dostępne są na
-                stronie: 
+                stronie:
+                <span> </span>
                 <a
                   href="https://nety.pl/jak-wylaczyc-pliki-cookie/"
                   target="blank"
                 >
-                   jak wyłączyć cookie
+                  jak wyłączyć cookie
                 </a>
-                 lub u jednego ze wskazanych dostawców:
+                <span> </span>
+                lub u jednego ze wskazanych dostawców:
                 <ul>
                   <li>
                     <a
@@ -368,10 +370,17 @@ const PrivacyPolicy = () => {
             </span>
             <ul>
               <li>
-                <a href="https://www.facebook.com/legal/terms" target="blank">Facebook</a>
+                <a href="https://www.facebook.com/legal/terms" target="blank">
+                  Facebook
+                </a>
               </li>
               <li>
-                <a href="https://policies.google.com/privacy?hl=pl" target="blank">Google+</a>
+                <a
+                  href="https://policies.google.com/privacy?hl=pl"
+                  target="blank"
+                >
+                  Google+
+                </a>
               </li>
             </ul>
           </li>
