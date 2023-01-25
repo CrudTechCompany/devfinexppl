@@ -31,7 +31,7 @@ const MobileMenu = (props) => {
       default: {
       }
     }
-  }, [langPlState, langEnState, langUaState]);
+  }, []);
 
   return (
     <div className={style["mobile-menu"]}>
@@ -52,20 +52,24 @@ const MobileMenu = (props) => {
         >
           <img src={langPlState ? lang_pl_on : lang_pl_off} alt="" />
         </button>
-        <button onClick={() => {
+        <button
+          onClick={() => {
             setLangPlState(false);
             setLangEnState(true);
             setLangUaState(false);
             props.changeLanguages("en");
-          }}>
+          }}
+        >
           <img src={langEnState ? lang_en_on : lang_en_off} alt="" />
         </button>
-        <button onClick={() => {
+        <button
+          onClick={() => {
             setLangPlState(false);
             setLangEnState(false);
             setLangUaState(true);
             props.changeLanguages("ua");
-          }}>
+          }}
+        >
           <img src={langUaState ? lang_ua_on : lang_ua_off} alt="" />
         </button>
       </div>

@@ -46,19 +46,15 @@ const App = () => {
   };
   const [mobileMenuState, setMobileMenuState] = useState(false);
 
-  const setMobileMenuStateHandler = () => {
+  const setMobileMenuStateHandler = (event) => {
+    event.preventDefault();
     setMobileMenuState((prev) => {
       prev = !prev;
       return prev;
     });
   };
   return (
-    <div
-      className="App"
-      style={{
-        position: mobileMenuState ? "fixed" : "relative",
-      }}
-    >
+    <div className="App">
       {mobileMenuState && (
         <MobileMenu
           t={t}
