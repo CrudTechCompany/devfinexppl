@@ -3,7 +3,7 @@ import finexp_logo from "../../assets/finexp_logo.svg";
 import { Link } from "react-scroll";
 import { Link as NavLink } from "react-router-dom";
 
-const Footer = () => {
+const Footer = (props) => {
   return (
     <footer className={style["footer"]}>
       <div className={style["content-block"]}>
@@ -15,35 +15,35 @@ const Footer = () => {
               to="about-block"
               smooth="true"
             >
-              O nas
+              {props.t("about_us_link")}
             </Link>
             <Link
               className={style["link-block__item"]}
               to="offer-block"
               smooth="true"
             >
-              Oferta
+              {props.t("offer_link")}
             </Link>
             <Link
               className={style["link-block__item"]}
               to="price-block"
               smooth="true"
             >
-              Cennik
+              {props.t("price_link")}
             </Link>
             <Link
               className={style["link-block__item"]}
               to="benefit-block"
               smooth="true"
             >
-              Korzyści
+              {props.t("benefits_link")}
             </Link>
             <Link
               className={style["link-block__item"]}
               to="contact-block"
               smooth="true"
             >
-              Kontakt
+              {props.t("contact_link")}
             </Link>
           </div>
           <div>
@@ -62,9 +62,9 @@ const Footer = () => {
         <div className={style["separator"]} />
         <div className={style["bottom-block"]}>
           <NavLink to="/privacy-policy" target="_blank">
-            Polityka prywatności
+            {props.t("privacy_policy_link")}
           </NavLink>
-          <span>© 2023 | All rights reserved</span>
+          <span>{props.t("all_rights_reserved")}</span>
         </div>
       </div>
     </footer>

@@ -7,16 +7,14 @@ const PrivacyPolicyPopUp = (props) => {
       <div className={style["pop-up__content"]}>
         <div className={style["content-block"]}>
           <span>
-            Ta strona korzysta z ciasteczek aby świadczyć usługi na najwyższym
-            poziomie. Dalsze korzystanie ze strony oznacza, że zgadzasz się na
-            ich użycie.
+            {props.t("pop_up_privacy_title")}
           </span>
           <Link to="/privacy-policy" target="_blank" rel="noreferrer">
-            Polityka prywatności
+            {props.t("privacy_policy_link")}
           </Link>
         </div>
         <button onClick={props.onClickPopUpAgreeButton}>
-          Zaakceptuj i zamknij
+          {props.t("pop_up_privacy_button")}
         </button>
       </div>
     </div>

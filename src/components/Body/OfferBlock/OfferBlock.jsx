@@ -8,7 +8,7 @@ import offer_6 from "../../../assets/offer_6.svg";
 import OfferCard from "./OfferCard/OfferCard";
 import { useEffect, useState } from "react";
 
-const OfferBlock = () => {
+const OfferBlock = (props) => {
   const [nextButtonState, setNextButtonState] = useState(true);
   const [prevButtonState, setPrevButtonState] = useState(false);
   const onClickNextButton = (event) => {
@@ -99,7 +99,7 @@ const OfferBlock = () => {
     document.getElementById("scroll-block").addEventListener("scroll", () => {
       console.log(document.getElementById("scroll-block").scrollLeft);
       console.log(document.getElementById("scroll-block").scrollWidth);
-      if(window.innerWidth > 820){
+      if (window.innerWidth > 820) {
         if (document.getElementById("scroll-block").scrollLeft >= 2350) {
           setNextButtonState(false);
         } else {
@@ -111,7 +111,7 @@ const OfferBlock = () => {
           setPrevButtonState(true);
         }
       }
-      if(window.innerWidth > 480 && window.innerWidth <=820){
+      if (window.innerWidth > 480 && window.innerWidth <= 820) {
         if (document.getElementById("scroll-block").scrollLeft >= 2850) {
           setNextButtonState(false);
         } else {
@@ -139,16 +139,43 @@ const OfferBlock = () => {
   });
   return (
     <div className={style["block"]} id="offer-block">
-      <h3 className={style["title"]}>Oferta biura rachunkowego</h3>
+      <h3 className={style["title"]}>{props.t("offer_block_title")}</h3>
       <div className={style["content-block"]} id="scroll-block">
         <div className={style["content"]}>
-          {content.map((el) => (
+          {content.map((el, index) => (
             <OfferCard
-              id={el["key"]}
               key={el["key"]}
               icon={el["icon"]}
-              title={el["title"]}
-              description={el["description"]}
+              title={
+                index === 0
+                  ? props.t("offer_card_first_title")
+                  : index === 1
+                  ? props.t("offer_card_second_title")
+                  : index === 2
+                  ? props.t("offer_card_third_title")
+                  : index === 3
+                  ? props.t("offer_card_fourth_title")
+                  : index === 4
+                  ? props.t("offer_card_fifth_title")
+                  : index === 5
+                  ? props.t("offer_card_sixth_title")
+                  : el["title"]
+              }
+              description={
+                index === 0
+                  ? props.t("offer_card_first_description")
+                  : index === 1
+                  ? props.t("offer_card_second_description")
+                  : index === 2
+                  ? props.t("offer_card_third_description")
+                  : index === 3
+                  ? props.t("offer_card_fourth_description")
+                  : index === 4
+                  ? props.t("offer_card_fifth_description")
+                  : index === 5
+                  ? props.t("offer_card_sixth_description")
+                  : el["description"]
+              }
             />
           ))}
         </div>

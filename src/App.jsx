@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Outlet, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Page404 from "./components/404/404";
@@ -9,18 +10,26 @@ import Header from "./components/Header/Header";
 import MobileMenu from "./components/MobileMenu/MobileMenu";
 import PrivacyPolicyPopUp from "./components/Pop-Up/PrivacyPolicyPopUp";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
-
+import "./i18n.js";
 const MainPage = (props) => {
   return (
     <React.Fragment>
-      <Header setMobileMenuState={props.setMobileMenuState} />
+      <Header
+        t={props.t}
+        changeLanguages={props.changeLanguages}
+        setMobileMenuState={props.setMobileMenuState}
+      />
       <Outlet />
-      <Footer />
+      <Footer t={props.t} changeLanguages={props.changeLanguages} />
     </React.Fragment>
   );
 };
 
 const App = () => {
+  const { t, i18n } = useTranslation();
+  const changeLanguages = (language) => {
+    i18n.changeLanguage(language);
+  };
   useEffect(() => {
     localStorage.getItem("p_up_state") === "true"
       ? setPopUpState(false)
@@ -38,7 +47,6 @@ const App = () => {
   const [mobileMenuState, setMobileMenuState] = useState(false);
 
   const setMobileMenuStateHandler = () => {
-    console.log("aaa");
     setMobileMenuState((prev) => {
       prev = !prev;
       return prev;
@@ -52,7 +60,11 @@ const App = () => {
       }}
     >
       {mobileMenuState && (
-        <MobileMenu setMobileMenuState={setMobileMenuStateHandler} />
+        <MobileMenu
+          t={t}
+          changeLanguages={changeLanguages}
+          setMobileMenuState={setMobileMenuStateHandler}
+        />
       )}
       <Routes>
         <Route
@@ -61,6 +73,8 @@ const App = () => {
             <React.Fragment>
               {popUpState && (
                 <PrivacyPolicyPopUp
+                  t={t}
+                  changeLanguages={changeLanguages}
                   onClickPopUpAgreeButton={onClickPopUpAgreeButton}
                 />
               )}
@@ -68,6 +82,8 @@ const App = () => {
                 <ContactForm setContactFormState={setContactFormStateHandler} />
               )}
               <MainPage
+                t={t}
+                changeLanguages={changeLanguages}
                 setPopUpState={setPopUpState}
                 setMobileMenuState={setMobileMenuStateHandler}
               />
@@ -76,7 +92,13 @@ const App = () => {
         >
           <Route
             index
-            element={<Body setContactFormState={setContactFormStateHandler} />}
+            element={
+              <Body
+                t={t}
+                changeLanguages={changeLanguages}
+                setContactFormState={setContactFormStateHandler}
+              />
+            }
           />
         </Route>
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />

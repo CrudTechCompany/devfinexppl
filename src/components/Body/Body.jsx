@@ -9,12 +9,20 @@ import PriceBlock from "./PriceBlock/PriceBlock";
 const Body = (props) => {
   return (
     <div className={style["body"]}>
-      <HeadBlock setContactFormState={props.setContactFormState} />
-      <AboutUsBlock />
-      <OfferBlock />
-      <BenefitBlock />
-      <PriceBlock setContactFormState={props.setContactFormState}/>
-      <ContactBlock />
+      <HeadBlock
+        t={props.t}
+        changeLanguage={props.changeLanguage}
+        setContactFormState={props.setContactFormState}
+      />
+      <AboutUsBlock t={props.t} changeLanguage={props.changeLanguage} />
+      <OfferBlock t={props.t} changeLanguage={props.changeLanguage} />
+      <BenefitBlock t={props.t} changeLanguage={props.changeLanguage} />
+      <PriceBlock
+        t={props.t}
+        changeLanguage={props.changeLanguage}
+        setContactFormState={props.setContactFormState}
+      />
+      <ContactBlock t={props.t} changeLanguage={props.changeLanguage} />
     </div>
   );
 };

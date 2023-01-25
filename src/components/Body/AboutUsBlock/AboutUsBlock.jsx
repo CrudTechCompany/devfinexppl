@@ -1,7 +1,7 @@
 import style from "./AboutUsBlock.module.css";
 import about_block from "../../../assets/about_block.svg";
 
-const AboutUsBlock = () => {
+const AboutUsBlock = (props) => {
   const content = [
     {
       title: "lat doświadczenia",
@@ -23,24 +23,20 @@ const AboutUsBlock = () => {
           <img src={about_block} alt="" />
           <div className={style["content__content"]}>
             <h3 className={style["title"]}>
-              O Finance <span>Expert</span>
+              {props.t("about_block_title")} <span>Expert</span>
             </h3>
             <span className={style["description"]}>
-              Finance Expert oferuje kompleksowe usługi księgowe oraz usługi
-              kadrowe i doradcze dla firm. Nasi pracownicy posiadają należyte
-              doświadczenie i szkolenia w obrębie swoich kwalifikacji tak, by
-              nie bali się Państwo im zaufać i bez obaw zlecili prowadzenie
-              księgowości. Obserwujemy na bieżąco zmieniający się rynek oraz
-              prawo, dlatego proponowane przez nas rozwiązania oraz prowadzona
-              księgowość są zawsze zgodne z obowiązującymi normami i
-              najkorzystniejsze dla klienta. Swoje usługi świadczymy również
-              zdalnie – współpraca z klientami z całej Polski.
+              {props.t("about_block_description")}
             </span>
             <div className={style["statistics-block"]}>
-              {content.map((el) => (
+              {content.map((el, index) => (
                 <div className={style["statistics__item"]} key={el["title"]}>
                   <span className={style["statistics__title"]}>
-                    {el["title"]}
+                    {index === 0
+                      ? props.t("about_block_experience")
+                      : index === 1
+                      ? props.t("about_block_customers")
+                      : props.t("about_block_documents")}
                   </span>
                   <div className={style["separator"]} />
                   <span className={style["count"]}>{el["count"]}</span>

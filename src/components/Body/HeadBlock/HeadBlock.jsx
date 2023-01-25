@@ -6,14 +6,14 @@ const HeadBlock = (props) => {
     <div className={style["block"]}>
       <div className={style["content"]}>
         <h1 className={style["title"]}>
-          Biuro rachunkowe
+          {props.t("head_block_title_1")}
           <br />
-          <span>dla przedsiębiorców</span>
+          <span>{props.t("head_block_title_2")}</span>
         </h1>
         <span className={style["description"]}>
-          Profesjonalna obsługa księgowa. Pracujemy na terenie całej Polski
+          {props.t("head_block_description")}
         </span>
-        <button onClick={props.setContactFormState}>Zapytaj o ofertę</button>
+        <button onClick={props.setContactFormState}>{props.t("head_block_button")}</button>
       </div>
       <img src={head_block} alt="" />
     </div>

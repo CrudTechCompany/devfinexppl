@@ -1,29 +1,29 @@
 import style from "./ContactBlock.module.css";
 import contact_block from "../../../assets/contact_block.svg";
 
-const ContactBlock = () => {
+const ContactBlock = (props) => {
   return (
     <div className={style["block"]} id="contact-block">
       <div className={style["form-block"]}>
         <h3 className={style["title"]}>
-          Zdalna obsługa księgowa dla Twojej firmy
+          {props.t("contact_block_title")}
         </h3>
         <input
           className={style["input-field"]}
           type="text"
-          placeholder="Imię"
+          placeholder={props.t("name_input_placeholder")}
         />
         <input
           className={style["input-field"]}
           type="text"
-          placeholder="nazwisko"
+          placeholder={props.t("surname_input_placeholder")}
         />
         <input
           className={style["input-field"]}
           type="text"
-          placeholder="telefon"
+          placeholder={props.t("phone_number_input_placeholder")}
         />
-        <button>Wyślij</button>
+        <button>{props.t("contact_block_send_button")}</button>
       </div>
       <img src={contact_block} alt="" />
     </div>

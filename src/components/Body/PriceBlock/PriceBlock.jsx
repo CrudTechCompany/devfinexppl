@@ -10,8 +10,8 @@ const PriceBlock = (props) => {
       <div className={style["content-block"]}>
         <div className={style["content"]}>
           <div className={style["title-block"]}>
-            <h3 className={style["title"]}>Cennik</h3>
-            <span>Wszystkie kwoty są cenami netto</span>
+            <h3 className={style["title"]}>{props.t("price_block_title")}</h3>
+            <span>{props.t("price_block_description")}</span>
           </div>
           <FirstBlock setContactFormState={props.setContactFormState}/>
           <SecondBlock setContactFormState={props.setContactFormState}/>
