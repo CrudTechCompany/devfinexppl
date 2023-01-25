@@ -13,10 +13,10 @@ const PriceBlock = (props) => {
             <h3 className={style["title"]}>{props.t("price_block_title")}</h3>
             <span>{props.t("price_block_description")}</span>
           </div>
-          <FirstBlock setContactFormState={props.setContactFormState}/>
-          <SecondBlock setContactFormState={props.setContactFormState}/>
-          <ThirdBlock setContactFormState={props.setContactFormState}/>
-          <FourthBlock setContactFormState={props.setContactFormState}/>
+          <FirstBlock t={props.t} setContactFormState={props.setContactFormState}/>
+          <SecondBlock t={props.t} setContactFormState={props.setContactFormState}/>
+          <ThirdBlock t={props.t} setContactFormState={props.setContactFormState}/>
+          <FourthBlock t={props.t} setContactFormState={props.setContactFormState}/>
         </div>
       </div>
     </div>

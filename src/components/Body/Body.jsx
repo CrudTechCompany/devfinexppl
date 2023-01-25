@@ -11,15 +11,13 @@ const Body = (props) => {
     <div className={style["body"]}>
       <HeadBlock
         t={props.t}
-        changeLanguage={props.changeLanguage}
         setContactFormState={props.setContactFormState}
       />
-      <AboutUsBlock t={props.t} changeLanguage={props.changeLanguage} />
-      <OfferBlock t={props.t} changeLanguage={props.changeLanguage} />
-      <BenefitBlock t={props.t} changeLanguage={props.changeLanguage} />
+      <AboutUsBlock t={props.t} />
+      <OfferBlock t={props.t} />
+      <BenefitBlock t={props.t} />
       <PriceBlock
         t={props.t}
-        changeLanguage={props.changeLanguage}
         setContactFormState={props.setContactFormState}
       />
       <ContactBlock t={props.t} changeLanguage={props.changeLanguage} />

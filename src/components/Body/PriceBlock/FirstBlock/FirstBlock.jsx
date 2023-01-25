@@ -4,27 +4,27 @@ import first_block from "../../../../assets/first_block.svg";
 const FirstBlock = (props) => {
   const content = [
     {
-      title: "do 30 dokumentów",
+      title: "30",
       price: "500 zł",
     },
     {
-      title: "do 50 dokumentów",
+      title: "50",
       price: "700 zł",
     },
     {
-      title: "do 75 dokumentów",
+      title: "75",
       price: "900 zł",
     },
     {
-      title: "do 100 dokumentów",
+      title: "100",
       price: "1200 zł",
     },
     {
-      title: "do 150 dokumentów",
+      title: "150",
       price: "1500 zł",
     },
     {
-      title: "do 200 dokumentów",
+      title: "200",
       price: "1900 zł",
     },
   ];
@@ -32,13 +32,15 @@ const FirstBlock = (props) => {
     <div className={style["block"]}>
       <div className={style["content-block"]}>
         <div className={style["content"]}>
-          <span className={style["title"]}>
-            Obsługa finansowo-księgowa - Pełna księgowość
-          </span>
+          <span className={style["title"]}>{props.t("price_first_title")}</span>
           <div className={style["item-block"]}>
             {content.map((el) => (
               <div className={style["item"]} key={el["title"]}>
-                <span className={style["item__title"]}>{el["title"]}</span>
+                <span className={style["item__title"]}>
+                  {props.t("price_item_first") +
+                    el["title"] +
+                    props.t("price_item_second")}
+                </span>
                 <span className={style["item__description"]}>
                   {el["price"]}
                 </span>
@@ -46,10 +48,13 @@ const FirstBlock = (props) => {
             ))}
           </div>
           <span className={style["description"]}>
-            Każde kolejne zwiększenie dokumentów - <span>10 zł</span> (netto) za
-            każdy dokument
+            {props.t("price_description_first")}
+            <span>10 zł</span>
+            {props.t("price_description_second")}
           </span>
-          <button onClick={props.setContactFormState}>Umów się na spotkanie</button>
+          <button onClick={props.setContactFormState}>
+            {props.t("price_block_contact_button")}
+          </button>
         </div>
         <img src={first_block} alt="" />
       </div>

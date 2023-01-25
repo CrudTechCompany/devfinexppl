@@ -28,16 +28,34 @@ const ThirdBlock = (props) => {
     <div className={style["block"]}>
       <div className={style["content-block"]}>
         <div className={style["content"]}>
-          <span className={style["title"]}>Usługi kadrowo-płacowe</span>
+          <span className={style["title"]}>{props.t("price_third_title")}</span>
           <div className={style["item-block"]}>
-            {content.map((el) => (
+            {content.map((el, index) => (
               <div className={style["item"]} key={el["title"]}>
-                <span className={style["item__title"]}>{el["title"]}</span>
-                <span className={style["item__price"]}>{el["price"]}</span>
+                <span className={style["item__title"]}>
+                  {index === 0
+                    ? props.t("price_first_item_title")
+                    : index === 1
+                    ? props.t("price_second_item_title")
+                    : index === 2
+                    ? props.t("price_third_item_title")
+                    : props.t("price_fourth_item_title")}
+                </span>
+                <span className={style["item__price"]}>
+                  {index === 0
+                    ? props.t("price_first_item_price")
+                    : index === 1
+                    ? props.t("price_second_item_price")
+                    : index === 2
+                    ? props.t("price_third_item_price")
+                    : props.t("price_fourth_item_price")}
+                </span>
               </div>
             ))}
           </div>
-          <button onClick={props.setContactFormState}>Umów się na spotkanie</button>
+          <button onClick={props.setContactFormState}>
+            {props.t("price_block_contact_button")}
+          </button>
         </div>
         <img src={third_block} alt="" />
       </div>

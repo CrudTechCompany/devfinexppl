@@ -11,6 +11,7 @@ import MobileMenu from "./components/MobileMenu/MobileMenu";
 import PrivacyPolicyPopUp from "./components/Pop-Up/PrivacyPolicyPopUp";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 import "./i18n.js";
+
 const MainPage = (props) => {
   return (
     <React.Fragment>
@@ -70,12 +71,11 @@ const App = () => {
               {popUpState && (
                 <PrivacyPolicyPopUp
                   t={t}
-                  changeLanguages={changeLanguages}
                   onClickPopUpAgreeButton={onClickPopUpAgreeButton}
                 />
               )}
               {contactFormState && (
-                <ContactForm setContactFormState={setContactFormStateHandler} />
+                <ContactForm t={t} setContactFormState={setContactFormStateHandler} />
               )}
               <MainPage
                 t={t}
@@ -91,14 +91,13 @@ const App = () => {
             element={
               <Body
                 t={t}
-                changeLanguages={changeLanguages}
                 setContactFormState={setContactFormStateHandler}
               />
             }
           />
         </Route>
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="*" element={<Page404 />} />
+        <Route path="*" element={<Page404 t={t} />} />
       </Routes>
     </div>
   );

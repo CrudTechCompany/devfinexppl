@@ -42,10 +42,24 @@ const FourthBlock = (props) => {
           <div className={style["item"]} key={el["title"]}>
             <div className={style["item-block"]}>
               <div className={style["title-block"]}>
-                <span className={style["item__title"]}>{el["title"]}</span>
+                <span className={style["item__title"]}>
+                  {index === 0
+                    ? props.t("price_block_fourth_item_first_title")
+                    : index === 1
+                    ? props.t("price_block_fourth_item_second_title")
+                    : index === 2
+                    ? props.t("price_block_fourth_item_third_title")
+                    : index === 3
+                    ? props.t("price_block_fourth_item_fourth_title")
+                    : index === 4
+                    ? props.t("price_block_fourth_item_fifth_title")
+                    : props.t("price_block_fourth_item_sixth_title")}
+                </span>
                 {el["description"] != null && (
                   <span className={style["item__description"]}>
-                    {el["description"]}
+                    {index === 1
+                      ? props.t("price_block_fourth_item_second_description")
+                      : props.t("price_block_fourth_item_third_description")}
                   </span>
                 )}
               </div>
@@ -55,10 +69,22 @@ const FourthBlock = (props) => {
                   color: index === 4 ? "#282828" : "#34A573",
                 }}
               >
-                {el["price"]}
+                {index === 0
+                  ? props.t("price_block_fourth_item_first_price")
+                  : index === 1
+                  ? props.t("price_block_fourth_item_second_price")
+                  : index === 2
+                  ? props.t("price_block_fourth_item_third_price")
+                  : index === 3
+                  ? props.t("price_block_fourth_item_fourth_price")
+                  : index === 4
+                  ? props.t("price_block_fourth_item_fifth_price")
+                  : props.t("price_block_fourth_item_sixth_price")}
               </span>
             </div>
-            <button onClick={props.setContactFormState}>Umów się na spotkanie</button>
+            <button onClick={props.setContactFormState}>
+              {props.t("price_block_contact_button")}
+            </button>
           </div>
         ))}
       </div>

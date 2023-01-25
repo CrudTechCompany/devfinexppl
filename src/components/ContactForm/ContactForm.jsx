@@ -19,21 +19,21 @@ const ContactForm = (props) => {
             </button>
           </div>
           <div className={style["form-block"]}>
-            <span className={style["title"]}>Umów się na spotkanie</span>
+            <span className={style["title"]}>{props.t("contact_form_title")}</span>
             <input
               className={style["input-field"]}
               type="text"
-              placeholder="Imię"
+              placeholder={props.t("name_input_placeholder")}
             />
             <input
               className={style["input-field"]}
               type="text"
-              placeholder="nazwisko"
+              placeholder={props.t("surname_input_placeholder")}
             />
             <input
               className={style["input-field"]}
               type="tel"
-              placeholder="telefon"
+              placeholder={props.t("phone_number_input_placeholder")}
             />
             <div className={style["check-box-block"]}>
               <button
@@ -47,11 +47,10 @@ const ContactForm = (props) => {
               </button>
 
               <span>
-                Wyrażam zgodę na przetwarzanie danych osobowych. Informacje
-                dotyczące przetwarzania Twoich danych osobowych - czytaj więcej
+                {props.t("contact_form_checkbox")}
               </span>
             </div>
-            <button className={style["form-block__button"]}>Wyślij</button>
+            <button className={style["form-block__button"]}>{props.t("contact_form_button")}</button>
           </div>
         </div>
       </div>
