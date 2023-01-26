@@ -68,7 +68,6 @@
   padding-left: 15px;
   margin-top: 20px;
   width: calc(100% - 19px);
-  border-color: rgba(207, 207, 207, 1);
   border-width: 1px;
   outline: none;
   height: 52px;
@@ -103,7 +102,6 @@
   font-family: var(--font-lato);
   font-style: normal;
   line-height: 19.2px;
-  color: rgba(255, 255, 255, 1);
 }
 .check-box-button {
   border: none;
