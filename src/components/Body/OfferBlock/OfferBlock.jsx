@@ -105,10 +105,10 @@ const OfferBlock = (props) => {
         } else {
           setNextButtonState(true);
         }
-        if (document.getElementById("scroll-block").scrollLeft < 640) {
-          setPrevButtonState(false);
-        } else {
+        if (document.getElementById("scroll-block").scrollLeft > 0) {
           setPrevButtonState(true);
+        } else {
+          setPrevButtonState(false);
         }
       }
       if (window.innerWidth > 480 && window.innerWidth <= 820) {
@@ -117,10 +117,10 @@ const OfferBlock = (props) => {
         } else {
           setNextButtonState(true);
         }
-        if (document.getElementById("scroll-block").scrollLeft < 610) {
-          setPrevButtonState(false);
-        } else {
+        if (document.getElementById("scroll-block").scrollLeft > 0) {
           setPrevButtonState(true);
+        } else {
+          setPrevButtonState(false);
         }
       }
       if (window.innerWidth <= 480) {
@@ -129,10 +129,10 @@ const OfferBlock = (props) => {
         } else {
           setNextButtonState(true);
         }
-        if (document.getElementById("scroll-block").scrollLeft < 340) {
-          setPrevButtonState(false);
-        } else {
+        if (document.getElementById("scroll-block").scrollLeft > 0) {
           setPrevButtonState(true);
+        } else {
+          setPrevButtonState(false);
         }
       }
     });

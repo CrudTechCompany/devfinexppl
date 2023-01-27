@@ -22,7 +22,7 @@
   height: max-content;
   display: flex;
   flex-direction: row;
-  overflow: hidden;
+  overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
