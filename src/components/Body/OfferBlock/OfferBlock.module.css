@@ -59,8 +59,16 @@
   background: transparent;
   cursor: pointer;
 }
+@media (max-width:1340px){
+  .title{
+    width: calc(100% - 80px);
+  }
+  .nav-block{
+    width: calc(100% - 80px);
+  }
+}
 
-@media (max-width: 820px) {
+@media (max-width: 1024px) {
   .title {
     width: calc(100% - 80px);
     text-align: center;
