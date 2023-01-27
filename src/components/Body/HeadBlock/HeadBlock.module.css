@@ -113,10 +113,11 @@
     line-height: 38.4px;
   }
   .description {
+    max-width: 100%;
     margin-top: 15px;
     font-size: 18px;
     line-height: 23.4px;
-    text-align: start;
+    text-align: center;
   }
   .content button {
     margin-top: 15px;
