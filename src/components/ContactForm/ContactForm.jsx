@@ -3,31 +3,15 @@ import close_icon from "../../assets/close_icon.svg";
 import check_box_off from "../../assets/check-box-off.svg";
 import check_box_on from "../../assets/check-box-on.svg";
 import { useState } from "react";
-// import { GoogleSpreadsheet } from "google-spreadsheet";
+import axios from "axios";
 
 const ContactForm = (props) => {
-  // const {
-  //   REACT_APP_PRIVATE_KEY,
-  //   REACT_APP_CLIENT_EMAIL,
-  //   REACT_APP_SPREADSHEET_ID,
-  //   REACT_APP_SHEET_ID,
-  // } = process.env;
-  // const doc = new GoogleSpreadsheet(REACT_APP_SPREADSHEET_ID);
-  // const appendSpreadsSheet = async (row) => {
-  //   try {
-  //     await doc.useServiceProviderAuth({
-  //       client_email: REACT_APP_CLIENT_EMAIL,
-  //       private_key: REACT_APP_PRIVATE_KEY,
-  //     });
-  //     await doc.loadInfo();
-  //     console.log(doc.loadInfo());
-  //     const sheet = doc.sheetsById(REACT_APP_SHEET_ID);
-  //     const result = await sheet.addRow(row);
-  //     return result;
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
+  const params = {
+    ID_LIST: "63d2f233aaa21d679e722b02",
+    KEY: "17d763e350b4de07d83936e65261ad20",
+    TOKEN:
+      "ATTA5d0876c3c8d85f0daef4bf1f0a82e4efa5a86940d30056f0390d6c08564d3263853A8461",
+  };
   const [nameFieldState, setNameFieldState] = useState("");
   const setNameFieldStateHandler = (event) => {
     setNameFieldState((prev) => {
@@ -69,30 +53,78 @@ const ContactForm = (props) => {
       setSurnameFieldState("");
       setPhoneNumberFieldState("");
       setCheckBoxState(false);
-      console.log({
-        name: nameFieldState,
-        surname: surnameFieldState,
-        phone_number: phoneNumberFieldState,
-      });
+      setErrorCheckBoxState(false);
+      setEmptyNameFieldState(false);
+      setEmptySurnameFieldState(false);
+      setEmptyPhoneNumberFieldState(false);
+      let dataName = "ID: ";
+      if (new Date().getDay() < 10) {
+        dataName += "0" + new Date().getDay();
+      } else {
+        dataName += new Date().getDay();
+      }
+      if (new Date().getMonth() < 10) {
+        dataName += "-0" + (new Date().getMonth() + 1);
+      } else {
+        dataName += "-" + (new Date().getMonth() + 1);
+      }
+      dataName += "-" + new Date().getFullYear();
+      if (new Date().getHours() < 10) {
+        dataName += " 0" + new Date().getHours();
+      } else {
+        dataName += " " + new Date().getHours();
+      }
+      if (new Date().getMinutes() < 10) {
+        dataName += ":0" + new Date().getMinutes();
+      } else {
+        dataName += ":" + new Date().getMinutes();
+      }
+      if (new Date().getSeconds() < 10) {
+        dataName += ":0" + new Date().getSeconds();
+      } else {
+        dataName += ":" + new Date().getSeconds();
+      }
+      let dataDesc =
+        nameFieldState +
+        " " +
+        surnameFieldState +
+        " " +
+        phoneNumberFieldState;
+      const data = {
+        desc: dataDesc,
+        name: dataName,
+      };
+      try{
+        axios
+        .post("https://api.trello.com/1/cards", data, {
+          params: {
+            idList: params["ID_LIST"],
+            key: params["KEY"],
+            token: params["TOKEN"],
+          },
+        })
+      }catch(e){
+        console.log(e);
+      }
     } else {
       if (nameFieldState.length === 0) {
         setEmptyNameFieldState(true);
-      }else{
+      } else {
         setEmptyNameFieldState(false);
       }
       if (surnameFieldState.length === 0) {
         setEmptySurnameFieldState(true);
-      }else{
+      } else {
         setEmptySurnameFieldState(false);
       }
       if (phoneNumberFieldState.length === 0) {
         setEmptyPhoneNumberFieldState(true);
-      }else{
+      } else {
         setEmptyPhoneNumberFieldState(false);
       }
       if (checkBoxState) {
         setErrorCheckBoxState(false);
-      }else{
+      } else {
         setErrorCheckBoxState(true);
       }
     }
