@@ -102,7 +102,7 @@ const ContactForm = (props) => {
             key: params["KEY"],
             token: params["TOKEN"],
           },
-        })
+        }).then(props.setContactFormState)
       }catch(e){
         console.log(e);
       }
