@@ -2,10 +2,22 @@ import style from "./ContactForm.module.css";
 import close_icon from "../../assets/close_icon.svg";
 import check_box_off from "../../assets/check-box-off.svg";
 import check_box_on from "../../assets/check-box-on.svg";
+import successfully_image from "../../assets/successfully_image.svg";
 import { useState } from "react";
 import axios from "axios";
 
 const ContactForm = (props) => {
+  const [successfullyState, setSuccessfulyState] = useState(false);
+  const setSuccessfulyStateHandler = () => {
+    setSuccessfulyState((prev) => {
+      prev = !prev;
+      return prev;
+    });
+  };
+  const onClickContinueButtonHandler = () => {
+    props.setContactFormState();
+    setSuccessfulyStateHandler();
+  };
   const params = {
     ID_LIST: "63d2f233aaa21d679e722b02",
     KEY: "17d763e350b4de07d83936e65261ad20",
@@ -85,25 +97,26 @@ const ContactForm = (props) => {
         dataName += ":" + new Date().getSeconds();
       }
       let dataDesc =
-        nameFieldState +
-        " " +
-        surnameFieldState +
-        " " +
-        phoneNumberFieldState;
+        nameFieldState + " " + surnameFieldState + " " + phoneNumberFieldState;
       const data = {
         desc: dataDesc,
         name: dataName,
       };
-      try{
+      try {
         axios
-        .post("https://api.trello.com/1/cards", data, {
-          params: {
-            idList: params["ID_LIST"],
-            key: params["KEY"],
-            token: params["TOKEN"],
-          },
-        }).then(props.setContactFormState)
-      }catch(e){
+          .post("https://api.trello.com/1/cards", data, {
+            params: {
+              idList: params["ID_LIST"],
+              key: params["KEY"],
+              token: params["TOKEN"],
+            },
+          })
+          .then((response) =>
+            response.status === 200
+              ? setSuccessfulyStateHandler()
+              : props.setContactFormState()
+          );
+      } catch (e) {
         console.log(e);
       }
     } else {
@@ -132,81 +145,101 @@ const ContactForm = (props) => {
   return (
     <div className={style["block"]}>
       <div className={style["content"]}>
-        <div className={style["content__content"]}>
-          <div className={style["head-block"]}>
-            <button onClick={props.setContactFormState}>
-              <img src={close_icon} alt="" />
-            </button>
-          </div>
-          <div className={style["form-block"]}>
-            <span className={style["title"]}>
-              {props.t("contact_form_title")}
+        {successfullyState ? (
+          <div className={style["content__content"]}>
+            <img
+              className={style["successfully-img"]}
+              src={successfully_image}
+              alt=""
+            />
+            <span className={style["successfully-title"]}>{props.t("successfully_title")}</span>
+            <span className={style["successfully-description"]}>
+            {props.t("successfully_description")}
             </span>
-            <input
-              style={{
-                borderColor: emptyNameFieldState
-                  ? "rgba(222, 68, 68, 1)"
-                  : "rgba(207, 207, 207, 1)",
-              }}
-              value={nameFieldState}
-              onChange={setNameFieldStateHandler}
-              className={style["input-field"]}
-              type="text"
-              placeholder={props.t("name_input_placeholder")}
-            />
-            <input
-              style={{
-                borderColor: emptySurnameFieldState
-                  ? "rgba(222, 68, 68, 1)"
-                  : "rgba(207, 207, 207, 1)",
-              }}
-              value={surnameFieldState}
-              onChange={setSurnameFieldStateHandler}
-              className={style["input-field"]}
-              type="text"
-              placeholder={props.t("surname_input_placeholder")}
-            />
-            <input
-              style={{
-                borderColor: emptyPhoneNumberFieldState
-                  ? "rgba(222, 68, 68, 1)"
-                  : "rgba(207, 207, 207, 1)",
-              }}
-              value={phoneNumberFieldState}
-              onChange={setPhoneNumberStateHandler}
-              className={style["input-field"]}
-              type="tel"
-              placeholder={props.t("phone_number_input_placeholder")}
-            />
-            <div className={style["check-box-block"]}>
-              <button
-                onClick={onClickCheckBoxHandler}
-                className={style["check-box-button"]}
-              >
-                <img
-                  src={checkBoxState ? check_box_on : check_box_off}
-                  alt=""
-                />
-              </button>
-
-              <span
-                style={{
-                  color: errorCheckBoxState
-                    ? "rgba(222, 68, 68, 1)"
-                    : "rgba(255, 255, 255, 1)",
-                }}
-              >
-                {props.t("contact_form_checkbox")}
-              </span>
-            </div>
             <button
-              className={style["form-block__button"]}
-              onClick={onClickSendButtonHandler}
+              className={style["successfully-button"]}
+              onClick={onClickContinueButtonHandler}
             >
-              {props.t("contact_form_button")}
+              {props.t("404_button")}
             </button>
           </div>
-        </div>
+        ) : (
+          <div className={style["content__content"]}>
+            <div className={style["head-block"]}>
+              <button onClick={props.setContactFormState}>
+                <img src={close_icon} alt="" />
+              </button>
+            </div>
+            <div className={style["form-block"]}>
+              <span className={style["title"]}>
+                {props.t("contact_form_title")}
+              </span>
+              <input
+                style={{
+                  borderColor: emptyNameFieldState
+                    ? "rgba(222, 68, 68, 1)"
+                    : "rgba(207, 207, 207, 1)",
+                }}
+                value={nameFieldState}
+                onChange={setNameFieldStateHandler}
+                className={style["input-field"]}
+                type="text"
+                placeholder={props.t("name_input_placeholder")}
+              />
+              <input
+                style={{
+                  borderColor: emptySurnameFieldState
+                    ? "rgba(222, 68, 68, 1)"
+                    : "rgba(207, 207, 207, 1)",
+                }}
+                value={surnameFieldState}
+                onChange={setSurnameFieldStateHandler}
+                className={style["input-field"]}
+                type="text"
+                placeholder={props.t("surname_input_placeholder")}
+              />
+              <input
+                style={{
+                  borderColor: emptyPhoneNumberFieldState
+                    ? "rgba(222, 68, 68, 1)"
+                    : "rgba(207, 207, 207, 1)",
+                }}
+                value={phoneNumberFieldState}
+                onChange={setPhoneNumberStateHandler}
+                className={style["input-field"]}
+                type="tel"
+                placeholder={props.t("phone_number_input_placeholder")}
+              />
+              <div className={style["check-box-block"]}>
+                <button
+                  onClick={onClickCheckBoxHandler}
+                  className={style["check-box-button"]}
+                >
+                  <img
+                    src={checkBoxState ? check_box_on : check_box_off}
+                    alt=""
+                  />
+                </button>
+
+                <span
+                  style={{
+                    color: errorCheckBoxState
+                      ? "rgba(222, 68, 68, 1)"
+                      : "rgba(255, 255, 255, 1)",
+                  }}
+                >
+                  {props.t("contact_form_checkbox")}
+                </span>
+              </div>
+              <button
+                className={style["form-block__button"]}
+                onClick={onClickSendButtonHandler}
+              >
+                {props.t("contact_form_button")}
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

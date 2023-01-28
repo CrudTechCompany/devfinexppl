@@ -81,5 +81,7 @@
     "price_block_fourth_item_fifth_title":"Річний звіт",
     "price_block_fourth_item_fifth_price":"Одна середньомісячна винагорода за фінансово-бухгалтерські послуги, а також послуги з персоналу та розрахунку заробітної плати за певний звітний рік, але не менше 1000,00 zł",
     "price_block_fourth_item_sixth_title":"Інші види діяльності",
-    "price_block_fourth_item_sixth_price":"200 zł / h"
+    "price_block_fourth_item_sixth_price":"200 zł / h",
+    "successfully_title":"Дякуємо!",
+    "successfully_description": "Ми зв'яжемося з вами найближчим часом"
 }
