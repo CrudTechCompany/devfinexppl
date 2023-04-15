@@ -1,7 +1,13 @@
 import style from "./ThirdBlock.module.css";
 import third_block from "../../../../assets/third_block.svg";
+import { useInView } from 'react-intersection-observer';
 
 const ThirdBlock = (props) => {
+
+  const{ ref,inView } = useInView({
+    threshold:0,
+  });
+
   const content = [
     {
       title:
@@ -31,7 +37,7 @@ const ThirdBlock = (props) => {
           <span className={style["title"]}>{props.t("price_third_title")}</span>
           <div className={style["item-block"]}>
             {content.map((el, index) => (
-              <div className={style["item"]} key={el["title"]}>
+              <div ref = {ref} className={`${style["item"]} ${inView ? style["show-element"]: style[""]} `} key={el["title"]}>
                 <span className={style["item__title"]}>
                   {index === 0
                     ? props.t("price_first_item_title")

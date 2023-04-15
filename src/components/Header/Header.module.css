@@ -9,6 +9,7 @@
   background: rgba(40, 40, 40, 1);
   position: fixed;
   top: 0;
+  z-index: 1;
 }
 .content {
   width: calc(100% - 240px);

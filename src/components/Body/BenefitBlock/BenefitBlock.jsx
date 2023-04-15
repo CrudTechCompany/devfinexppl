@@ -7,8 +7,12 @@ import benefit_5 from "../../../assets/benefit_5.svg";
 import benefit_6 from "../../../assets/benefit_6.svg";
 import benefit_7 from "../../../assets/benefit_7.svg";
 import benefit_8 from "../../../assets/benefit_8.svg";
+import { useInView } from 'react-intersection-observer';
 
 const BenefitBlock = (props) => {
+  const{ ref,inView } = useInView({
+    threshold:0.5,
+  })
   const content = [
     {
       icon: benefit_1,
@@ -50,7 +54,7 @@ const BenefitBlock = (props) => {
       </h3>
       <div className={style["content"]}>
         {content.map((el, index) => (
-          <div className={style["content__item"]} key={el["title"]}>
+          <div ref={ref} className={`${style["content__item"]} ${inView ? style["show-element"]: style[""]} `} key={el["title"]}>
             <img src={el["icon"]} alt="" />
             <span>
               {index === 0

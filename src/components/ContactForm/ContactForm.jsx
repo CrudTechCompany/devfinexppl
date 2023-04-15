@@ -5,8 +5,14 @@ import check_box_on from "../../assets/check-box-on.svg";
 import successfully_image from "../../assets/successfully_image.svg";
 import { useState } from "react";
 import axios from "axios";
+import { useInView } from 'react-intersection-observer';
 
 const ContactForm = (props) => {
+
+  const{ ref,inView } = useInView({
+    threshold:0,
+  });
+
   const [successfullyState, setSuccessfulyState] = useState(false);
   const setSuccessfulyStateHandler = () => {
     setSuccessfulyState((prev) => {
@@ -144,7 +150,7 @@ const ContactForm = (props) => {
   };
   return (
     <div className={style["block"]}>
-      <div className={style["content"]}>
+      <div ref = {ref} className={`${style["content"]} ${inView ? style["show-element"]: style[""]} `}>
         {successfullyState ? (
           <div className={style["content__content"]}>
             <img

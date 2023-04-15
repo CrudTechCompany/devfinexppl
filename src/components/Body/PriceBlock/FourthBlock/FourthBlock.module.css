@@ -20,6 +20,7 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
+  
 }
 .item:not(:first-of-type) {
   margin-top: 40px;
@@ -29,7 +30,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
 }
+
 .title-block {
   width: 200px;
   display: flex;
@@ -51,7 +54,9 @@
   font-style: normal;
   line-height: 20.8px;
   color: rgba(40, 40, 40, 1);
+
 }
+
 .item button {
   width: 300px;
   height: 55px;

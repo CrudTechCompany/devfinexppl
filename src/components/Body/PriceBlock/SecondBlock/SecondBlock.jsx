@@ -1,7 +1,13 @@
 import style from "./SecondBlock.module.css";
 import second_block from "../../../../assets/second_block.svg";
+import { useInView } from 'react-intersection-observer';
 
 const SecondBlock = (props) => {
+
+  const{ ref,inView } = useInView({
+    threshold:0,
+  })
+
   const content = [
     {
       title: "10",
@@ -46,7 +52,7 @@ const SecondBlock = (props) => {
           </span>
           <div className={style["item-block"]}>
             {content.map((el) => (
-              <div className={style["item"]} key={el["title"]}>
+              <div  ref = {ref} className={`${style["item"]} ${inView ? style["show-element"]: style[""]}`} key={el["title"]}>
                 <span className={style["item__title"]}>
                   {props.t("price_item_first") +
                     el["title"] +

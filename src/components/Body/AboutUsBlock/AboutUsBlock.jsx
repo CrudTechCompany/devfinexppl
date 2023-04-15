@@ -1,7 +1,13 @@
 import style from "./AboutUsBlock.module.css";
 import about_block from "../../../assets/about_block.svg";
+import { useInView } from 'react-intersection-observer';
 
 const AboutUsBlock = (props) => {
+
+  const{ ref,inView } = useInView({
+    threshold:0,
+  })
+
   const content = [
     {
       title: "lat doświadczenia",
@@ -25,7 +31,7 @@ const AboutUsBlock = (props) => {
             <h3 className={style["title"]}>
               {props.t("about_block_title")} <span>Expert</span>
             </h3>
-            <span className={style["description"]}>
+            <span ref={ref} className={`${style["description"]} ${inView ? style["show-element"]: style[""]} `}>
               {props.t("about_block_description")}
             </span>
             <div className={style["statistics-block"]}>
