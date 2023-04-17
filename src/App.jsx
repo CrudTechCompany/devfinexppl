@@ -29,6 +29,7 @@ const MainPage = (props) => {
 const App = () => {
   const { t, i18n } = useTranslation();
   const changeLanguages = (language) => {
+    window.history.pushState('Language', 'Language', `/${language}`);
     i18n.changeLanguage(language);
   };
   useEffect(() => {
@@ -65,7 +66,7 @@ const App = () => {
       )}
       <Routes>
         <Route
-          path="/"
+          path="/:lang?"
           element={
             <React.Fragment>
               {popUpState && (

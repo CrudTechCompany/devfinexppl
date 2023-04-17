@@ -12,7 +12,7 @@ i18n
     whitelist: ["pl", "en", "ua"],
     debug: false,
     detection: {
-      order: ["localStorage", "cookie"],
+      order: ["path","localStorage", "cookie"],
       cache: ["localStorage", "cookie"],
     },
     interpolation: {
