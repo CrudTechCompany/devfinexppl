@@ -10,10 +10,15 @@
     background: rgba(28, 28, 28, 0);
     color: #ffff;
     border: 0;
-    font-size: 20px;
+    font-size: 13px;
     padding: 10px;
+    cursor: pointer;
 }
-.button-group{
+.language-button:hover{
+    color:rgba(52, 165, 115, 1)
+
+}
+.button-group.button-group{
     position: absolute;
     left: 10px;
     top: 40px;

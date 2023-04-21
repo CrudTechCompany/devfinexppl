@@ -9,29 +9,9 @@ import lang_en_off from "../../assets/lang_en_off.svg";
 import lang_ua_off from "../../assets/lang_ua_off.svg";
 import { Link } from "react-scroll";
 import { useEffect, useState } from "react";
-
+import LanguageSelector from "../languageSelector/LanguageSelector";
 const MobileMenu = (props) => {
-  const [langPlState, setLangPlState] = useState(false);
-  const [langEnState, setLangEnState] = useState(false);
-  const [langUaState, setLangUaState] = useState(false);
-  useEffect(() => {
-    switch (localStorage.getItem("i18nextLng")) {
-      case "pl": {
-        setLangPlState(true);
-        break;
-      }
-      case "en": {
-        setLangEnState(true);
-        break;
-      }
-      case "ua": {
-        setLangUaState(true);
-        break;
-      }
-      default: {
-      }
-    }
-  }, []);
+  
 
   return (
     <div className={style["mobile-menu"]}>
@@ -42,36 +22,9 @@ const MobileMenu = (props) => {
         </button>
       </div>
       <div className={style["lang-block"]}>
-        <button
-          onClick={() => {
-            setLangPlState(true);
-            setLangEnState(false);
-            setLangUaState(false);
-            props.changeLanguages("pl");
-          }}
-        >
-          <img src={langPlState ? lang_pl_on : lang_pl_off} alt="" />
-        </button>
-        <button
-          onClick={() => {
-            setLangPlState(false);
-            setLangEnState(true);
-            setLangUaState(false);
-            props.changeLanguages("en");
-          }}
-        >
-          <img src={langEnState ? lang_en_on : lang_en_off} alt="" />
-        </button>
-        <button
-          onClick={() => {
-            setLangPlState(false);
-            setLangEnState(false);
-            setLangUaState(true);
-            props.changeLanguages("ua");
-          }}
-        >
-          <img src={langUaState ? lang_ua_on : lang_ua_off} alt="" />
-        </button>
+        
+        <LanguageSelector onLanguageChange={(lange)=>props.changeLanguages(lange)}/>
+        
       </div>
       <div className={style["link-block"]}>
         <Link onClick={props.setMobileMenuState} to="about-block" smooth="true">

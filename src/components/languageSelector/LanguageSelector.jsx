@@ -1,16 +1,17 @@
-import style from "./LanguageSelector.css";
+import "./LanguageSelector.css";
 import planet from "../../assets/planet.svg";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import useOutsideAlerter from "./useOutsideAlerter";
 
 
 const LanguageSelector = (props) => {
   const [currentLanguage, setCurrentLanguage] = useState('PL');
-  const [showOption, setShowOption] = useState(false);
+  const [ref,isShow,setIsShow] = useOutsideAlerter(false);
   const setLanguage = (language) => {
     setCurrentLanguage(language.toUpperCase());
     props.onLanguageChange(language.toLowerCase());
-    setShowOption(false);
+    setIsShow(false)
   }
   useEffect(() => {
     setLanguage(localStorage.getItem("i18nextLng"))
@@ -21,13 +22,13 @@ const LanguageSelector = (props) => {
     .map(i => <button className="language-button" key={i} onClick={() => setLanguage(i)} >{i.toUpperCase()}</button>)
   return (
     <div >
-      <div className="language-wrapper">
+      <div ref={ref}className="language-wrapper">
         <div className="current-language">
           <img src={planet} alt="" />
-          <button className="language-button" onClick={() => setShowOption(true)}>{currentLanguage}</button>
+          <button  className="language-button" onClick={() => setIsShow(!isShow)}>{currentLanguage}</button>
         </div>
-        {showOption ? (
-          <div className="button-group">
+        {isShow ? (
+          <div  className="button-group">
             {avalibleOption}
           </div>) : (<></>)}
       </div>

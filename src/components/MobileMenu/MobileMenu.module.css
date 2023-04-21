@@ -32,19 +32,21 @@
 .lang-block {
   margin-top: 30px;
   width: calc(100% - 40px);
+  
 }
 .lang-block button{
   border: none;
   outline: none;
-  padding: 0;
+  padding: 9px;
   background: transparent;
+  opacity: 0.6;
 }
 .lang-block img {
   width: 30px;
   height: 30px;
 }
 .lang-block button:not(:first-of-type) {
-  margin-left: 20px;
+ /* margin-left: 20px; */
 }
 .link-block {
   margin-top: 30px;
