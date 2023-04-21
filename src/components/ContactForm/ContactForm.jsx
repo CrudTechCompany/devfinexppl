@@ -6,6 +6,7 @@ import successfully_image from "../../assets/successfully_image.svg";
 import { useState } from "react";
 import axios from "axios";
 import { useInView } from 'react-intersection-observer';
+import Sucess from "./Success";
 
 const ContactForm = (props) => {
 
@@ -149,27 +150,10 @@ const ContactForm = (props) => {
     }
   };
   return (
-    <div className={style["block"]}>
+        successfullyState ? 
+        (<Sucess t={props.t} setContactFormState={onClickContinueButtonHandler} />) : (
+          <div className={style["block"]}>
       <div ref = {ref} className={`${style["content"]} ${inView ? style["show-element"]: style[""]} `}>
-        {successfullyState ? (
-          <div className={style["content__content"]}>
-            <img
-              className={style["successfully-img"]}
-              src={successfully_image}
-              alt=""
-            />
-            <span className={style["successfully-title"]}>{props.t("successfully_title")}</span>
-            <span className={style["successfully-description"]}>
-            {props.t("successfully_description")}
-            </span>
-            <button
-              className={style["successfully-button"]}
-              onClick={onClickContinueButtonHandler}
-            >
-              {props.t("404_button")}
-            </button>
-          </div>
-        ) : (
           <div className={style["content__content"]}>
             <div className={style["head-block"]}>
               <button onClick={props.setContactFormState}>
@@ -245,9 +229,8 @@ const ContactForm = (props) => {
               </button>
             </div>
           </div>
-        )}
-      </div>
-    </div>
+          </div>
+    </div>)
   );
 };
 

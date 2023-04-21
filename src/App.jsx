@@ -5,6 +5,7 @@ import "./App.css";
 import Page404 from "./components/404/404";
 import Body from "./components/Body/Body";
 import ContactForm from "./components/ContactForm/ContactForm";
+import Sucess from "./components/ContactForm/Success";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import MobileMenu from "./components/MobileMenu/MobileMenu";
@@ -39,6 +40,7 @@ const App = () => {
   }, []);
   const [popUpState, setPopUpState] = useState(true);
   const [contactFormState, setContactFormState] = useState(false);
+  const [contactSuccessSend, setContactSuccessSend] = useState(false);
   const setContactFormStateHandler = () => {
     setContactFormState((prev) => !prev);
   };
@@ -78,6 +80,9 @@ const App = () => {
               {contactFormState && (
                 <ContactForm t={t} setContactFormState={setContactFormStateHandler} />
               )}
+               {contactSuccessSend && (
+                <Sucess t={t} setContactFormState={setContactSuccessSend} />
+              )}
               <MainPage
                 t={t}
                 changeLanguages={changeLanguages}
@@ -93,6 +98,7 @@ const App = () => {
               <Body
                 t={t}
                 setContactFormState={setContactFormStateHandler}
+                onSendForm={setContactSuccessSend}
               />
             }
           />

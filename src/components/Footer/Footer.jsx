@@ -49,8 +49,8 @@ const Footer = (props) => {
           <div>
             <div className={style["address-block"]}>
               <span>Finance Expert Sp. z o.o.</span>
-              <span>ul. Krupnicza 2-4/31</span>
-              <span>50-074 Wrocław</span>
+              <span>ul. Kuźnicza 10, III piętro</span>
+              <span>50-138 Wrocław</span>
               <span>NIP: 8971906842</span>
             </div>
             <div className={style["contact-block"]}>

@@ -20,7 +20,7 @@ const Body = (props) => {
         t={props.t}
         setContactFormState={props.setContactFormState}
       />
-      <ContactBlock t={props.t} changeLanguage={props.changeLanguage} />
+      <ContactBlock t={props.t} changeLanguage={props.changeLanguage} onSendForm={props.onSendForm} />
     </div>
   );
 };

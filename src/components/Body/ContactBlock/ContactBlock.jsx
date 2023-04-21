@@ -114,7 +114,10 @@ const ContactBlock = (props) => {
             key: params["KEY"],
             token: params["TOKEN"],
           },
-        });
+        }).then(() => {
+          props.onSendForm(true);
+        })
+      
       } catch (e) {
         console.log(e);
       }
