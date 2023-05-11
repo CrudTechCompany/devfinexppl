@@ -109,7 +109,22 @@ const ContactForm = (props) => {
         desc: dataDesc,
         name: dataName,
       };
-      try {
+      try {   
+        axios.post("https://biznesexpert.bitrix24.pl/rest/2237/1ievccze15ppnpci/crm.lead.add.json",{
+          fields: { 
+            "TITLE": "finexp.pl | Contact Form", 
+            "NAME": nameFieldState,
+            "LAST_NAME": surnameFieldState, 
+            "STATUS_ID": "NEW", 
+            "OPENED": "Y", 
+            "PHONE": [ { "VALUE": phoneNumberFieldState, "VALUE_TYPE": "WORK" } ] ,  
+        }
+        }).then((response) =>
+        response.status === 200
+          ? setSuccessfulyStateHandler()
+          : props.setContactFormState()
+      );
+      /*
         axios
           .post("https://api.trello.com/1/cards", data, {
             params: {
@@ -123,6 +138,7 @@ const ContactForm = (props) => {
               ? setSuccessfulyStateHandler()
               : props.setContactFormState()
           );
+          */
       } catch (e) {
         console.log(e);
       }
