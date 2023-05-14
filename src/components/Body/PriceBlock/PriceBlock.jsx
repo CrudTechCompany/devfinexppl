@@ -3,6 +3,8 @@ import FourthBlock from "./FourthBlock/FourthBlock";
 import style from "./PriceBlock.module.css";
 import SecondBlock from "./SecondBlock/SecondBlock";
 import ThirdBlock from "./ThirdBlock/ThirdBlock";
+import FifthBlock from "./FifthBlock/FifthBlock";
+import SixthBlock from "./SixthBlock/SixthBlock";
 
 const PriceBlock = (props) => {
   return (
@@ -13,6 +15,8 @@ const PriceBlock = (props) => {
             <h3 className={style["title"]}>{props.t("price_block_title")}</h3>
             <span>{props.t("price_block_description")}</span>
           </div>
+          <SixthBlock t={props.t} setContactFormState={props.setContactFormState}/>
+          <FifthBlock  t={props.t} setContactFormState={props.setContactFormState}/>
           <FirstBlock t={props.t} setContactFormState={props.setContactFormState}/>
           <SecondBlock t={props.t} setContactFormState={props.setContactFormState}/>
           <ThirdBlock t={props.t} setContactFormState={props.setContactFormState}/>

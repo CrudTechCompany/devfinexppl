@@ -109,6 +109,7 @@ const ContactForm = (props) => {
         desc: dataDesc,
         name: dataName,
       };
+      console.log(data.name)
       try {   
         axios.post("https://biznesexpert.bitrix24.pl/rest/2237/1ievccze15ppnpci/crm.lead.add.json",{
           fields: { 

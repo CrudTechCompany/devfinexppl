@@ -2,13 +2,13 @@ import style from "./ContactBlock.module.css";
 import contact_block from "../../../assets/contact_block.svg";
 import { useState } from "react";
 import axios from "axios";
-import { useInView } from 'react-intersection-observer';
+/*import { useInView } from 'react-intersection-observer';*/
 
 const ContactBlock = (props) => {
 
-  const{ ref,inView } = useInView({
+  /*const{ ref,inView } = useInView({
     threshold:0,
-  });
+  });*/
 
   const params = {
     ID_LIST: "63d2f233aaa21d679e722b02",
@@ -148,7 +148,7 @@ const ContactBlock = (props) => {
     <div className={style["block"]} id="contact-block">
       <div className={style["form-block"]}>
         <h3 className={style["title"]}>{props.t("contact_block_title")}</h3>
-        <input ref = {ref}
+        <input 
           style={{
             borderColor: emptyNameFieldState
               ? "rgba(222, 68, 68, 1)"
@@ -156,11 +156,11 @@ const ContactBlock = (props) => {
           }}
           value={nameInputFieldState}
           onChange={setNameInputFieldStateHandler}
-          className={`${style["input-field"]} ${inView ? style["show-element"]: style[""]} `}
+          className={`${style["input-field"]} `}
           type="text"
           placeholder={props.t("name_input_placeholder")}
         />
-        <input ref = {ref}
+        <input 
           style={{
             borderColor: emptySurnameFieldState
               ? "rgba(222, 68, 68, 1)"
@@ -168,11 +168,11 @@ const ContactBlock = (props) => {
           }}
           value={surnameInputFieldState}
           onChange={setSurnameInputFieldStateHandler}
-          className={`${style["input-field"]} ${inView ? style["show-element"]: style[""]} `}
+          className={`${style["input-field"]}  `}
           type="text"
           placeholder={props.t("surname_input_placeholder")}
         />
-        <input ref = {ref}
+        <input 
           style={{
             borderColor: emptyPhoneNumberFieldState
               ? "rgba(222, 68, 68, 1)"
@@ -180,7 +180,7 @@ const ContactBlock = (props) => {
           }}
           value={phoneNumberInputFieldState}
           onChange={setPhoneNumberInputFieldStateHandler}
-          className={`${style["input-field"]} ${inView ? style["show-element"]: style[""]} `}
+          className={`${style["input-field"]} `}
           type="tel"
           placeholder={props.t("phone_number_input_placeholder")}
         />
