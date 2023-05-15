@@ -52,9 +52,9 @@ const Header = (props) => {
             <LanguageSelector onLanguageChange={(lange)=>props.changeLanguages(lange)} />
           <a
             className={style["contact-block__item"]}
-            href="tel:+48 502 708 529"
+            href="tel:+48718808807"
           >
-            +48 502 708 529
+            +48 718 808 807
           </a>
         </div>
         <button

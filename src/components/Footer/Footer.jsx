@@ -54,7 +54,7 @@ const Footer = (props) => {
               <span>NIP: 8971906842</span>
             </div>
             <div className={style["contact-block"]}>
-              <a href="tel:+48 502 708 529">+48 502 708 529</a>
+              <a href="tel:+48718808807">+48 718 808 807</a>
               <a href="mailto:biuro@finexp.pl">biuro@finexp.pl</a>
             </div>
           </div>
