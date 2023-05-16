@@ -30,6 +30,13 @@ const MainPage = (props) => {
 const App = () => {
   const { t, i18n } = useTranslation();
   const changeLanguages = (language) => {
+    const cleanLanguage = () => {
+      if(['pl','en','ua','ru'].includes(i18n.language) == false) {
+        i18n.changeLanguage('pl');
+        return
+      }
+    }
+    cleanLanguage();
     if (['pl','en','ua','ru'].includes(language) == false){
       i18n.changeLanguage('pl');
       return
