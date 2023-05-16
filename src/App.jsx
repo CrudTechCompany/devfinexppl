@@ -30,6 +30,10 @@ const MainPage = (props) => {
 const App = () => {
   const { t, i18n } = useTranslation();
   const changeLanguages = (language) => {
+    if (['pl','en','ua','ru'].includes(language) == false){
+      i18n.changeLanguage('pl');
+      return
+    }
     window.history.pushState('Language', 'Language', `/${language}`);
     i18n.changeLanguage(language);
   };
