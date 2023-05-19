@@ -113,7 +113,9 @@ const ContactForm = (props) => {
       try {   
         axios.post("https://biznesexpert.bitrix24.pl/rest/2237/1ievccze15ppnpci/crm.lead.add.json",{
           fields: { 
-            "TITLE": "finexp.pl | Contact Form", 
+            "TITLE": "finexp.pl | Contact Form",
+            "ASSIGNED_BY_ID": 965,
+            "SOURCE_ID": "UC_HGNS9W", 
             "NAME": nameFieldState,
             "LAST_NAME": surnameFieldState, 
             "STATUS_ID": "NEW", 
