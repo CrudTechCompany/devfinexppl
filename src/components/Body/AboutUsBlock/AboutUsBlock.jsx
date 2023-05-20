@@ -1,25 +1,37 @@
 import style from "./AboutUsBlock.module.css";
 import about_block from "../../../assets/about_block.svg";
 import { useInView } from 'react-intersection-observer';
+import { useSpring, animated } from "react-spring";
+
+
+function Number ({n}) {
+  const { number } = useSpring({
+    from:{number:0},
+    number:n,
+    delay:100,
+    config:{mass:1, tension:25,friction:10},
+  });
+  return <animated.div>{number.to((n) => n.toFixed(0))}</animated.div>
+}
 
 const AboutUsBlock = (props) => {
 
   const{ ref,inView } = useInView({
-    threshold:0,
+    threshold:0.5,
   })
 
   const content = [
     {
       title: "lat doświadczenia",
-      count: "5 +",
+      count: 5,
     },
     {
       title: "klientów",
-      count: "130 +",
+      count: 130,
     },
     {
       title: "dokumentów miesięcznie",
-      count: "2300 +",
+      count: 2300,
     },
   ];
   return (
@@ -27,11 +39,11 @@ const AboutUsBlock = (props) => {
       <div className={style["content-block"]}>
         <div className={style["content"]}>
           <img src={about_block} alt="" />
-          <div className={style["content__content"]}>
+          <div ref={ref}  className={style["content__content"]}>
             <h3 className={style["title"]}>
               {props.t("about_block_title")} <span>Expert</span>
             </h3>
-            <span ref={ref} className={`${style["description"]} ${inView ? style["show-element"]: style[""]} `}>
+            <span  className={`${style["description"]} ${inView ? style["show-element"]: style[""]} `}>
               {props.t("about_block_description")}
             </span>
             <div className={style["statistics-block"]}>
@@ -45,7 +57,7 @@ const AboutUsBlock = (props) => {
                       : props.t("about_block_documents")}
                   </span>
                   <div className={style["separator"]} />
-                  <span className={style["count"]}>{el["count"]}</span>
+                  <span className={style["count"]}>{inView && (<Number n = {el.count}/> )} <div className={style["plus"]}>+</div></span>
                 </div>
               ))}
             </div>
