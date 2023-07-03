@@ -110,5 +110,10 @@
     "price_block_fourth_item_sixth_title":"Other activities",
     "price_block_fourth_item_sixth_price":"200 zł / h",
     "successfully_title":"Thank you!",
-    "successfully_description": "We will contact you shortly"
+    "successfully_description": "We will contact you shortly",
+    "mainPopUp_header":"Someone is going on vacation, and someone starts their own company",
+    "mainPopUp_capture":"Register your company with us for 1000 zł",
+    "mainPopUp_description":"Contact us today and receive easy registration, professional support, and comprehensive accounting services",
+    "mainPopUp_button":"Contact us",
+    "mainPopUp_bottom":"The promotion is valid only until august"
 }

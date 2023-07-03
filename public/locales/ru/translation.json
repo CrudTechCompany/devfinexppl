@@ -110,5 +110,10 @@
     "price_block_fourth_item_sixth_title":"Другие виды деятельности",
     "price_block_fourth_item_sixth_price":"200 zł / h",
     "successfully_title":"Спасибо!",
-    "successfully_description": "Мы свяжемся с вами в ближайшее время"
+    "successfully_description": "Мы свяжемся с вами в ближайшее время",
+    "mainPopUp_header":"Кто-то летит в отпуск, а кто-то открывает свою фирму",
+    "mainPopUp_capture":"Регистрируй свою фирму с нами всего за 1000 zł",
+    "mainPopUp_description":"Свяжись с нами сегодня и получи легкую регистрацию и профессиональную поддержку и полное бухгалтерское обслуживание",
+    "mainPopUp_button":"Cвязаться с нами",
+    "mainPopUp_bottom":"акция действует только до августа"
 }

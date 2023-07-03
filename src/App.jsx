@@ -12,6 +12,8 @@ import MobileMenu from "./components/MobileMenu/MobileMenu";
 import PrivacyPolicyPopUp from "./components/Pop-Up/PrivacyPolicyPopUp";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 import "./i18n.js";
+import MainPopUp from "./components/Pop-Up/main-auto-popup/MainPopUp";
+
 
 const MainPage = (props) => {
   return (
@@ -31,19 +33,20 @@ const App = () => {
   const { t, i18n } = useTranslation();
   const changeLanguages = (language) => {
     const cleanLanguage = () => {
-      if(['pl','en','ua','ru'].includes(i18n.language) == false) {
+      if (['pl', 'en', 'ua', 'ru'].includes(i18n.language) == false) {
         i18n.changeLanguage('pl');
         return
       }
     }
     cleanLanguage();
-    if (['pl','en','ua','ru'].includes(language) == false){
+    if (['pl', 'en', 'ua', 'ru'].includes(language) == false) {
       i18n.changeLanguage('pl');
       return
     }
     window.history.pushState('Language', 'Language', `/${language}`);
     i18n.changeLanguage(language);
   };
+
   useEffect(() => {
     localStorage.getItem("p_up_state") === "true"
       ? setPopUpState(false)
@@ -52,13 +55,33 @@ const App = () => {
   const [popUpState, setPopUpState] = useState(true);
   const [contactFormState, setContactFormState] = useState(false);
   const [contactSuccessSend, setContactSuccessSend] = useState(false);
+
+  /*  auto popUp*/
+
+  const [lang,setLang] = useState(i18n.language)
+  const [showMainPopUp, setShowMainPopup] = useState(true);
+  const [mainPopUp, setMainPopUp] = useState(false);
+
+  const setMainPopUpHandler = () => {
+    setMainPopUp((prev) => !prev)
+  };
+
+  useEffect(() => {
+    if (showMainPopUp === true && lang !=='pl') {
+      setTimeout(() => setMainPopUp(true), 3000);
+      setShowMainPopup(false);
+    }
+  }, [showMainPopUp,lang]);
+
   const setContactFormStateHandler = () => {
     setContactFormState((prev) => !prev);
   };
+
   const onClickPopUpAgreeButton = () => {
     localStorage.setItem("p_up_state", "true");
     setPopUpState(false);
   };
+
   const [mobileMenuState, setMobileMenuState] = useState(false);
 
   const setMobileMenuStateHandler = (event) => {
@@ -82,6 +105,8 @@ const App = () => {
           path="/:lang?"
           element={
             <React.Fragment>
+              {mainPopUp && (<MainPopUp t={t} setMainPopUpHandler={setMainPopUpHandler} setContactFormState={setContactFormStateHandler} />)}
+
               {popUpState && (
                 <PrivacyPolicyPopUp
                   t={t}
@@ -91,7 +116,7 @@ const App = () => {
               {contactFormState && (
                 <ContactForm t={t} setContactFormState={setContactFormStateHandler} />
               )}
-               {contactSuccessSend && (
+              {contactSuccessSend && (
                 <Sucess t={t} setContactFormState={setContactSuccessSend} />
               )}
               <MainPage
