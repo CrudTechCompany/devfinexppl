@@ -15,7 +15,7 @@
     height: 550px;
     margin: 0 auto;
     border-radius: 16px;
-    background-image: url(../../../assets/mainPopUpBg.svg);
+    background-image: url(../../../assets/mainPopUpBg.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -113,7 +113,7 @@
   }
   @media (max-width: 600px) {
     .main-content-wrapper {
-      background-image: url(../../../assets/mainPopUpMobileBg.svg);
+      background-image: url(../../../assets/mainPopUpMobileBg.png);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
