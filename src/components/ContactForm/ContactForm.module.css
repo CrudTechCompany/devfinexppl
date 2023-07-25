@@ -185,6 +185,26 @@
   cursor: pointer;
   margin-bottom: 30px;
 }
+.phone-number-input{
+  width: 100%;
+}
+.phone-number-input input{
+  background: transparent;
+  border-style: solid;
+  padding-left: 15px;
+  margin-top: 20px;
+  width: calc(100% - 19px);
+  border-width: 1px;
+  outline: none;
+  height: 52px;
+  border-radius: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--font-lato);
+  font-style: normal;
+  line-height: 19.2px;
+  color: rgba(255, 255, 255, 1);
+}
 
 @media (max-width: 768px) {
   .content {

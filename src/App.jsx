@@ -34,13 +34,13 @@ const App = () => {
   const changeLanguages = (language) => {
     const cleanLanguage = () => {
       if (['pl', 'en', 'ua', 'ru'].includes(i18n.language) == false) {
-        i18n.changeLanguage('pl');
+        i18n.changeLanguage('ru');
         return
       }
     }
     cleanLanguage();
     if (['pl', 'en', 'ua', 'ru'].includes(language) == false) {
-      i18n.changeLanguage('pl');
+      i18n.changeLanguage('ru');
       return
     }
     window.history.pushState('Language', 'Language', `/${language}`);

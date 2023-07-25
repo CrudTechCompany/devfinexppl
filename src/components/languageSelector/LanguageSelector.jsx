@@ -6,7 +6,7 @@ import useOutsideAlerter from "./useOutsideAlerter";
 
 
 const LanguageSelector = (props) => {
-  const [currentLanguage, setCurrentLanguage] = useState('PL');
+  const [currentLanguage, setCurrentLanguage] = useState('RU');
   const [ref,isShow,setIsShow] = useOutsideAlerter(false);
   const setLanguage = (language) => {
     setCurrentLanguage(language.toUpperCase());
