@@ -68,7 +68,7 @@ const App = () => {
 
   useEffect(() => {
     if (showMainPopUp === true && lang !=='pl') {
-      setTimeout(() => setMainPopUp(true), 3000);
+      setTimeout(() => setMainPopUp(true), 10000);
       setShowMainPopup(false);
     }
   }, [showMainPopUp,lang]);
